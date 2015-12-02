@@ -16,7 +16,7 @@ RSpec.feature 'Deleting User' do
     end
   end
 
-  scenario 'that you are logged in has is not possible' do
+  scenario 'but not yourself' do
     page.find('tr', text: logged_in_user.email).click_link('Delete')
     expect(page).to have_content("You can not delete yourself.")
   end
