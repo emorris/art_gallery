@@ -1,0 +1,27 @@
+
+<header>
+  <h1>Users</h1>
+  <%= link_to "New User", new_admin_user_path, class: "new" %>
+</header>
+
+<table class="table table-striped">
+  <% @users.each do |user| %>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Last Logged In</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td> <%= link_to "Edit", edit_admin_user_path(user), class: "edit"%>
+      <%= link_to "Delete", admin_user_path(user), method: :delete,
+      data: { confirm: "Are you sure you want to delete this #{user.email}?" },
+      class: "delete" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+<table>
