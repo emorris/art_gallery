@@ -1,8 +1,8 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, except: [:index, :new, :create]
-  
+
   def index
-    @users =  User.all
+    @users = User.all
   end
 
   def new
@@ -12,21 +12,26 @@ class Admin::UsersController < Admin::ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] =  "User has been created."
+      flash[:notice] = 'User has been created.'
       redirect_to admin_users_path
     else
-      flash[:alert] = "User has failed to be created."
-      render "new"
+      flash[:alert] = 'User has failed to be created.'
+      render 'new'
     end
   end
 
   def destroy
-     if @user.destroy
-      flash[:notice] =  "User has been deleted."
+    if @user == current_user
+      flash[:alert] = 'You can not delete yourself.'
       redirect_to admin_users_path
     else
-      flash[:alert] = "User has failed to be deleted."
-      redirect_to admin_users_path
+      if @user.destroy
+        flash[:notice] = 'User has been deleted.'
+        redirect_to admin_users_path
+      else
+        flash[:alert] = 'User has failed to be deleted.'
+        redirect_to admin_users_path
+      end
     end
   end
 
@@ -38,16 +43,17 @@ class Admin::UsersController < Admin::ApplicationController
       params[:user].delete(:password)
     end
     if @user.update(user_params)
-      flash[:notice] = "User has been updated."
+      flash[:notice] = 'User has been updated.'
+      sign_in(@user, bypass: true) if @user == current_user
       redirect_to admin_users_path
     else
-      flash.now[:alert] = "User has failed to update."
-      render "edit"
-    end 
+      flash.now[:alert] = 'User has failed to update.'
+      render 'edit'
+    end
+
   end
 
   private
-
   def set_user
     @user = User.find(params[:id])
   end
@@ -55,5 +61,4 @@ class Admin::UsersController < Admin::ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
-
 end
