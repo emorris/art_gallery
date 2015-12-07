@@ -1,3 +1,77 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$background-color-body: grey;
+$background-color-info: white;
+$alpha-color-zero: rgba(255,0,0,0);
+
+body{
+  background-color: $background-color-body
+}
+
+#galleries{
+  background-color: $background-color-info;
+  .info_row{
+    border-right: solid 3px $background-color-body;
+    .text{
+      max-height:600px;
+      overflow: auto;
+    }
+  }
+}
+
+#top-nav{
+  @extend .navbar;
+  margin-bottom: 0px;
+  border: none;
+  min-height: 10px;
+}
+
+.top-tabs{
+  float: left;
+  background-color: $background-color-body;
+  border-bottom: 0px;
+  margin-right: -5px;
+  li {
+    margin-left: -15px;
+    background-color: $background-color-body;
+    margin: 0px;
+    padding:0px;
+    border-bottom:0px;
+
+    a, a:link{
+      background:transparent; 
+      padding: 0 40px;
+      height: 0; 
+      line-height: 30px;
+      text-decoration: none;
+      color: black;
+      border-right: 30px solid $alpha-color-zero;
+      border-bottom: 30px solid $background-color-info;
+      border-bottom-color: $background-color-info;
+    }
+    a:hover, a:active, a:focus{
+      color: blue;
+    }
+  }
+}
+
+#bottom-nav{
+  @extend #top-nav;
+  position: relative;
+  top: -20px;
+}
+
+.bottom-tabs{
+  @extend .top-tabs;
+
+  background-color: $alpha-color-zero;
+  li {
+    background-color: $alpha-color-zero;
+    a {
+      border-bottom-color: $background-color-body;
+      border-bottom: 30px solid $background-color-body;
+    }
+  }
+}

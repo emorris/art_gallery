@@ -1,0 +1,5 @@
+<%= simple_form_for [:admin, gallery]  do |f| %>
+  <%= f.input :name %>
+  <%= f.input :text, input_html: { class: 'summernote' }  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

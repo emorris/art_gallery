@@ -1,1 +1,14 @@
-Dashboard
+
+<div class="row" id="galleries">
+  <% @galleries.each do |gallery| %>
+    <div class="col-xs-12 col-md-4 ">
+      <div class="row info_row">
+        <div class="text"> 
+          <%= gallery.text.html_safe %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

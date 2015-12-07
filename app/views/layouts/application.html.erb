@@ -6,12 +6,47 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="container">
-    <% flash.each do |key, message| %>
-        <div class="alert alert-<%= key %>"> <%= message %> </div>
-    <% end %>
+<body>  
+<div id="dashboard" class="container-fluid">
+<nav class="row" id="top-nav">
+   <% @galleries.each do |gallery| %>
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav top-tabs row" role="tablist">
+        <li>
+          <a href="#" > <%= gallery.name %></a>
+        </li>
+      </ul>
+    </div>  
+  <% end %>
+</nav>
+
+
     <%= yield %>
+
+
+  <div class="row" id="bottom-nav">
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="#" > Test</a>
+        </li>
+      </ul>
+    </div> 
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="#" > Test</a>
+        </li>
+      </ul>
+    </div> 
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="#" > Test</a>
+        </li>
+      </ul>
+    </div> 
   </div>
+</div>
 </body>
 </html>

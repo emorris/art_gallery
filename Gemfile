@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'bower-rails'
+gem "bower-rails", "~> 0.10.0"
 gem 'simple_form'
 
 # Use ActiveModel has_secure_password
