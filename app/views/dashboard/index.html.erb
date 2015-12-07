@@ -1,4 +1,16 @@
 
+<nav class="row" id="top-nav">
+   <% @galleries.each do |gallery| %>
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav top-tabs row" role="tablist">
+        <li>
+          <a href="#" > <%= gallery.name %></a>
+        </li>
+      </ul>
+    </div>  
+  <% end %>
+</nav>
+
 <div class="row" id="galleries">
   <% @galleries.each do |gallery| %>
     <div class="col-xs-12 col-md-4 ">
@@ -11,4 +23,26 @@
   <% end %>
 </div>
 
-
+<div class="row" id="bottom-nav">
+  <div class="col-xs-12 col-md-4 ">
+    <ul class="nav bottom-tabs row" role="tablist">
+      <li>
+        <a href="#" > Test</a>
+      </li>
+    </ul>
+  </div> 
+  <div class="col-xs-12 col-md-4 ">
+    <ul class="nav bottom-tabs row" role="tablist">
+      <li>
+        <a href="#" > Test</a>
+      </li>
+    </ul>
+  </div> 
+  <div class="col-xs-12 col-md-4 ">
+    <ul class="nav bottom-tabs row" role="tablist">
+      <li>
+        <a href="#" > Test</a>
+      </li>
+    </ul>
+  </div> 
+</div>

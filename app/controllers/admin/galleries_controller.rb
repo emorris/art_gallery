@@ -12,20 +12,20 @@ class Admin::GalleriesController < Admin::ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
-      flash[:notice] = 'Gallery : #{@gallery} has been created.'
+      flash[:notice] = "Gallery : #{@gallery} has been created."
       redirect_to admin_galleries_path
     else
-      flash[:alert] = 'Gallery : #{@gallery} has failed to be created.'
+      flash[:alert] = "Gallery : #{@gallery} has failed to be created."
       render 'new'
     end
   end
 
   def destroy
     if @gallery.destroy
-      flash[:notice] = 'Gallery: #{@gallery} has been deleted.'
+      flash[:notice] = "Gallery: #{@gallery} has been deleted."
       redirect_to admin_galleries_path
     else
-      flash[:alert] = 'Gallery: #{@gallery} has failed to be deleted.'
+      flash[:alert] = "Gallery: #{@gallery} has failed to be deleted."
       redirect_to admin_galleries_path
     end
   end
@@ -34,15 +34,13 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def update
-
     if @gallery.update(gallery_params)
-      flash[:notice] = 'Gallery: #{@gallery} has been updated.'
+      flash[:notice] = "Gallery: #{@gallery} has been updated."
       redirect_to admin_galleries_path
     else
-      flash.now[:alert] = 'Gallery: #{@gallery} has failed to update.'
+      flash.now[:alert] = "Gallery: #{@gallery} has failed to update."
       render 'edit'
     end
-
   end
 
   private
