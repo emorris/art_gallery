@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202230848) do
+ActiveRecord::Schema.define(version: 20151208060316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.text     "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "galleries", force: :cascade do |t|
     t.string   "name",       null: false
@@ -22,6 +29,30 @@ ActiveRecord::Schema.define(version: 20151202230848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "news_posts", force: :cascade do |t|
+    t.string   "title",        null: false
+    t.text     "text",         null: false
+    t.date     "publish_date", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.integer  "gallery_id"
+    t.string   "title",           null: false
+    t.text     "artists"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "visible"
+    t.datetime "reception_start"
+    t.datetime "reception_end"
+    t.text     "text"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "shows", ["gallery_id"], name: "index_shows_on_gallery_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

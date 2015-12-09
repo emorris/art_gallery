@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, gallery, show]  do |f| %>
+ <%= f.input :visible %>
+  <%= f.input :title %>
+  <%= f.input :artists %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :reception_start %>
+  <%= f.input :reception_end %>
+  <%= f.input :text, input_html: { class: 'summernote' }  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

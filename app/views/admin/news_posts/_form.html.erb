@@ -1,0 +1,7 @@
+
+<%= simple_form_for [:admin, news_post]  do |f| %>
+  <%= f.input :title %>
+  <%= f.input :publish_date %>
+  <%= f.input :text, input_html: { class: 'summernote' }  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

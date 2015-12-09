@@ -1,0 +1,5 @@
+<%= simple_form_for [:admin, artist]  do |f| %>
+  <%= f.input :name %>
+  <%= f.input :bio, input_html: { class: 'summernote' }  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

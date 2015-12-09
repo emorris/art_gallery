@@ -6,7 +6,8 @@
   @extend .alert-danger;
 }
 
-a.new, a.edit, a.delete{
+a.new, a.edit, a.delete,
+a.add{
   @extend .btn;
 }
 
