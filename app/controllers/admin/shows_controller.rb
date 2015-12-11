@@ -53,7 +53,6 @@ class Admin::ShowsController < Admin::ApplicationController
   end
   
   def set_show
-    
     @show = Show.find(params[:id])
   end
 

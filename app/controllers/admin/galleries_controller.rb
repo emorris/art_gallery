@@ -7,6 +7,7 @@ class Admin::GalleriesController < Admin::ApplicationController
 
   def new
     @gallery = Gallery.new
+    @gallery.pictures.build
   end
 
   def create
@@ -31,10 +32,12 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def edit
+    @gallery.pictures.build
   end
 
   def update
     if @gallery.update(gallery_params)
+      
       flash[:notice] = "Gallery: #{@gallery} has been updated."
       redirect_to admin_galleries_path
     else
@@ -50,6 +53,6 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:name, :text)
+    params.require(:gallery).permit(:name, :text, pictures_attributes: [:image_file, :title, :text, :id])
   end
 end

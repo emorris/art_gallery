@@ -22,6 +22,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "bower-rails", "~> 0.10.0"
 gem 'simple_form'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
