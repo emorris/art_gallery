@@ -11,8 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/sortable
 //= require jquery_ujs
 //= require bootstrap-sass-official
 //= require summernote
+//= require blueimp-file-upload/js/vendor/jquery.ui.widget
+//= require blueimp-file-upload
+//= require handlebars
 //= require admin
 

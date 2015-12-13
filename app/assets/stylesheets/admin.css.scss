@@ -13,7 +13,10 @@
  *= require_self
  *= require font-awesome
  */
+ $icon-font-path: "bootstrap-sass-official/assets/fonts/bootstrap/";
  @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
  @import "font-awesome/scss/font-awesome.scss";
  @import "summernote/dist/summernote.css";
+ @import "blueimp-file-upload/css/jquery.fileupload-ui.css";
+ @import "blueimp-file-upload/css/jquery.fileupload.css";
  @import "globals";

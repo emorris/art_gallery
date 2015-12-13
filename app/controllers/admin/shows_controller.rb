@@ -3,16 +3,17 @@ class Admin::ShowsController < Admin::ApplicationController
   before_action :set_gallery
 
   def index
-    @shows = Show.all
+    @shows = @gallery.shows
   end
 
   def new
-    @show = Show.new
+    @show = @gallery.shows.build
   end
 
   def create
     @show = Show.new(show_params)
     if @show.save
+      @gallery.shows << @show
       flash[:notice] = 'Show has been created.'
       redirect_to admin_shows_path
     else

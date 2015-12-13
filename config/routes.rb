@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
     resources :users
+    resources :pictures, only: [:destroy]
     resources :artists
     resources :galleries do
+      member do
+        patch :upload_picture
+      end
       resources :shows
     end
     resources :news_posts

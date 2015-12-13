@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Upload file</h2>
+  <%= form_for [:admin, object], :url => { :action => :upload_picture} , :html => { :multipart => true, :id => "image-upload"  }  do |f| %>
+    <div class="row fileupload-buttonbar">
+        <div class="col-lg-7">
+            <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>Add files...</span>
+                 <%= file_field_tag 'image_file', name:'gallery[pictures_attributes][0][image_file]', multiple: true %>
+            </span>
+        </div>
+        <!-- The table listing the files available for upload/download -->
+        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+  <% end %>
+    <div id="files" class="files"></div>
+</div>
+

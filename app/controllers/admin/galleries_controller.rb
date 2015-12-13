@@ -32,17 +32,24 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def edit
-    @gallery.pictures.build
   end
 
   def update
     if @gallery.update(gallery_params)
-      
       flash[:notice] = "Gallery: #{@gallery} has been updated."
       redirect_to admin_galleries_path
     else
       flash.now[:alert] = "Gallery: #{@gallery} has failed to update."
       render 'edit'
+    end
+  end
+
+  def upload_picture
+    params[:gallery][:pictures_attributes]['0'][:sort] = @gallery.pictures.count
+    if @gallery.update(gallery_params)
+      render json: @gallery.pictures.last
+    else
+      render json: { errors: @gallery.errors.full_messages }, status: 422
     end
   end
 
@@ -53,6 +60,6 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:name, :text, pictures_attributes: [:image_file, :title, :text, :id])
+    params.require(:gallery).permit(:name, :text, pictures_attributes: [:image_file, :title, :text, :id, :sort])
   end
 end

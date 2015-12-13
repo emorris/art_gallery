@@ -3,18 +3,8 @@
     <%= simple_form_for [:admin, gallery]  do |f| %>
       <%= f.input :name %>
       <%= f.input :text, input_html: { class: 'summernote' }  %>
-  </div>
-
-  <div class="col-md-6">
-        <%= f.simple_fields_for :pictures do |ff| %>
-          <%= image_tag ff.object.image_file.thumb.url %>
-          <%= ff.input :image_file %>
-          <%= ff.input :title %>
-          <%= ff.input :text %>
-          <%= ff.input :image_file_cache, as: :hidden %>
-        <% end %>
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>
-
 </div>
+

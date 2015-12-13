@@ -1,3 +1,5 @@
 <header>Gallery Edit</header>
-
 <%= render "form", gallery: @gallery %>
+<%= render "components/upload_pictures", object: @gallery %>
+<%= render "components/sort_pictures", object: @gallery %>
+

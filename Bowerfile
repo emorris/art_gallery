@@ -3,3 +3,5 @@
 
 asset 'bootstrap-sass-official'
 asset 'summernote'
+asset 'blueimp-file-upload'
+asset 'handlebars'

@@ -22,3 +22,7 @@ a.edit{
 a.delete{
   @extend .btn-danger;
 }
+
+.sortable-picture img {
+  height: 50px
+}
