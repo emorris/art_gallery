@@ -36,7 +36,7 @@
       <td>
         <input label="false" type="file" name="<%= model_name %>[pictures_attributes][{{id}}][image_file]" />
       </td>
-      <input class="order-input" type="hidden" value="{sort}" name="<%= model_name %>[pictures_attributes][{{id}}][sort]" />
+      <input class="order-input" type="hidden" value="{{sort}}" name="<%= model_name %>[pictures_attributes][{{id}}][sort]" />
       <td>
         <input label="false" type="text" value="" name="<%= model_name %>[pictures_attributes][{{id}}][title]" />
       </td>
@@ -47,4 +47,5 @@
       <a data-confirm="Are you sure you want to delete this Picture: ?" class="delete" rel="nofollow" data-method="delete" href="/admin/pictures/{{id}}">Delete</a>
       </td>
     </tr>
+    <input type="hidden" value="{{id}}" name="gallery[pictures_attributes][{{id}}][id]" class="ui-sortable-handle">
 </script>
