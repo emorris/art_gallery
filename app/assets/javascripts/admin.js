@@ -1,6 +1,9 @@
 $(document).ready(function(){
-  var sortPictureTr = Handlebars.compile($("#tr-sort-picture").html());
-  var loadingFileSpinner   = Handlebars.compile($("#loading-file-button").html());
+  if ($("#tr-sort-picture").length > 0 ) 
+    var sortPictureTr = Handlebars.compile($("#tr-sort-picture").html());
+  
+  if ($("#loading-file-button").length > 0 ) 
+    var loadingFileSpinner   = Handlebars.compile($("#loading-file-button").html());
 
   window.setTimeout(function() { $(".alert-notice").hide('close'); }, 2000);
   

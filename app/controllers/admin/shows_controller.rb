@@ -16,7 +16,7 @@ class Admin::ShowsController < Admin::ApplicationController
     if @show.save
       @gallery.shows << @show
       flash[:notice] = 'Show has been created.'
-      redirect_to admin_gallery_shows_path(@gallery)
+      redirect_to admin_gallery_path(@gallery)
     else
       flash[:alert] = 'Show has failed to be created.'
       render :back
@@ -25,10 +25,10 @@ class Admin::ShowsController < Admin::ApplicationController
 
   def destroy
     if @show.destroy
-      flash[:notice] = 'User has been deleted.'
-      redirect_to admin_gallery_shows_path(@gallery)
+      flash[:notice] = 'Show has been deleted.'
+      redirect_to admin_gallery_path(@gallery)
     else
-      flash[:alert] = 'User has failed to be deleted.'
+      flash[:alert] = 'Show has failed to be deleted.'
       redirect_to :back
     end
   end
@@ -38,11 +38,11 @@ class Admin::ShowsController < Admin::ApplicationController
 
   def update
     if @show.update(show_params)
-      flash[:notice] = 'User has been updated.'
+      flash[:notice] = 'Show has been updated.'
       sign_in(@show, bypass: true) if @show == current_user
-      redirect_to admin_gallery_shows_path(@gallery)
+      redirect_to admin_gallery_path(@gallery)
     else
-      flash.now[:alert] = 'User has failed to update.'
+      flash.now[:alert] = 'Show has failed to update.'
       render :back
     end
   end
@@ -59,7 +59,7 @@ class Admin::ShowsController < Admin::ApplicationController
   private
 
   def set_gallery
-    @gallery = Gallery.find(params[:gallery_id])
+    @gallery = Gallery.find(params[:gallery_id]).includes(:shows)
   end
   
   def set_show

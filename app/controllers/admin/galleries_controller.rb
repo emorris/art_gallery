@@ -2,7 +2,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   before_action :set_gallery, except: [:index, :new, :create]
 
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.all.includes(:shows)
   end
 
   def new
