@@ -1,8 +1,13 @@
 $(document).ready(function(){
+  var sortPictureTr = Handlebars.compile($("#tr-sort-picture").html());
+  var loadingFileSpinner   = Handlebars.compile($("#loading-file-button").html());
+
   window.setTimeout(function() { $(".alert-notice").hide('close'); }, 2000);
   
+
   $('.summernote').summernote('code', $('textarea.summernote:first').text())
   
+
   $('#image-upload').fileupload({
     url: $('#image_upload').attr('action'),
     sequentialUploads: true,
@@ -19,21 +24,47 @@ $(document).ready(function(){
       //     progress + '%'
       // );
     }
+  }).on('fileuploaddone', function(e, data){
+    $("#"+data.files[0].lastModified).remove()
   }).on('fileuploadadd', function (e, data) {
-    $("#files").append($("<div/>").attr("id", data.files[0].name ).text(data.files[0].name ))
+    var data ={
+      file_name: data.files[0].name,
+      id: data.files[0].lastModified
+    }
+    $("#files").append(loadingFileSpinner(data))
   }).prop('disabled', !$.support.fileInput)
       .parent().addClass($.support.fileInput ? undefined : 'disabled');
-   
-  var source   = $("#tr-sort-picture").html();
-  var sortPictureTr = Handlebars.compile(source);
 
- $("#sortable-pictures-block").sortable({
+
+  $("#sortable-pictures-block").sortable({
     placeholder: "sortable-picture",
     stop: function( event, ui ) {
       $(this).find(".sortable-picture .order-input").each(function(index, obj){
         $(obj).val(index)
       })
     }
- })
+  })
+
+  $('#info_picture').on("click", function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+
+  $('a.delete').on("click", function(e){
+    $this = $(this)
+    e.preventDefault()
+    if (confirm($this.attr('data-confirm'))){
+      $.ajax({
+        url: $this.attr('href'),
+        method: $this.attr('data-method'),
+        success: function(){
+          var tr = $this.closest('tr')
+          tr.next('input').remove()
+          tr.remove()
+        }
+      })
+    }
+    return false
+  })
 
 })

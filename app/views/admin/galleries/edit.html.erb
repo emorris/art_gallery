@@ -1,5 +1,19 @@
 <header>Gallery Edit</header>
-<%= render "form", gallery: @gallery %>
-<%= render "components/upload_pictures", object: @gallery %>
-<%= render "components/sort_pictures", object: @gallery %>
+
+<ul class="nav nav-tabs" id="info_picture">
+  <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+  <li role="presentation"><a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">Pictures</a></li>
+</ul>
+
+
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="info"><%= render "form", gallery: @gallery %>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="pictures">
+    <%= render "components/upload_pictures", object: @gallery %>
+    <%= render "components/sort_pictures", object: @gallery %>
+  </div>
+</div>
+
 

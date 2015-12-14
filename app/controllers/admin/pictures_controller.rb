@@ -2,11 +2,9 @@ class Admin::PicturesController < Admin::ApplicationController
   before_action :set_picture
   def destroy
     if @picture.destroy
-      flash[:notice] = 'Picture has been deleted.'
-      redirect_to :back
+      render json: @picture
     else
-      flash[:alert] = 'Picture has failed to be deleted.'
-      redirect_to :back
+      render json: { errors: @picture.errors.full_messages }, status: 422
     end
   end
 

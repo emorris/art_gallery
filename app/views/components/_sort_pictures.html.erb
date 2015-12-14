@@ -1,10 +1,10 @@
 
 <div class="container">
-  <%= form_for [:admin, object], iclass: 'sort_pictures'   do |f| %>
+  <%= form_for [:admin, object], class: 'sort_pictures'   do |f| %>
+   <%= f.hidden_field :id  %>
     <table class="table table-striped" >
         <thead>
           <tr>
-            <th></th>
             <th></th>
             <th>Title</th>
             <th>Text</th>
@@ -15,26 +15,25 @@
           <%= f.fields_for :pictures do |ff| %>
            <tr class="sortable-picture">
               <td><%= image_tag ff.object.image_file.thumb.url %></td>
-              <td><%= ff.file_field :image_file %></td>
               <%= ff.hidden_field :sort, class: 'order-input'  %>
               <td><%= ff.text_field :title %></td>
               <td><%= ff.text_field :text %></td>
-              <td> <%= link_to "Delete", admin_picture_path(ff.object), method: :delete, data: { confirm: "Are you sure you want to delete this Picture: #{ff.object.title}?" }, class: "delete"  %></td>
+              <td> 
+                <%= link_to "Delete", admin_picture_path(ff.object), method: :delete, data: { confirm: "Are you sure you want to delete this Picture: #{ff.object.title}?" }, class: "delete"  %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.submit "Submit Picture Edits", class: "btn btn-primary" %>
   <% end %>
 </div>
+
 <% model_name = object.class.to_s.underscore %>
 <script id="tr-sort-picture" type="text/x-handlebars-template">
      <tr class="sortable-picture">
       <td>
         <img src="{{image_file.thumb.url}}" />
-      </td>
-      <td>
-        <input label="false" type="file" name="<%= model_name %>[pictures_attributes][{{id}}][image_file]" />
       </td>
       <input class="order-input" type="hidden" value="{{sort}}" name="<%= model_name %>[pictures_attributes][{{id}}][sort]" />
       <td>
@@ -47,5 +46,5 @@
       <a data-confirm="Are you sure you want to delete this Picture: ?" class="delete" rel="nofollow" data-method="delete" href="/admin/pictures/{{id}}">Delete</a>
       </td>
     </tr>
-    <input type="hidden" value="{{id}}" name="gallery[pictures_attributes][{{id}}][id]" class="ui-sortable-handle">
+    <input type="hidden" value="{{id}}" name="<%= model_name %>[pictures_attributes][{{id}}][id]" class="ui-sortable-handle">
 </script>

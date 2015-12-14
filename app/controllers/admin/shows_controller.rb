@@ -11,24 +11,25 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def create
-    @show = Show.new(show_params)
+    @show = @gallery.shows.create(show_params)
+    @show.attributes = show_params
     if @show.save
       @gallery.shows << @show
       flash[:notice] = 'Show has been created.'
-      redirect_to admin_shows_path
+      redirect_to admin_gallery_shows_path(@gallery)
     else
       flash[:alert] = 'Show has failed to be created.'
-      render 'new'
+      render :back
     end
   end
 
   def destroy
     if @show.destroy
       flash[:notice] = 'User has been deleted.'
-      redirect_to admin_shows_path
+      redirect_to admin_gallery_shows_path(@gallery)
     else
       flash[:alert] = 'User has failed to be deleted.'
-      redirect_to admin_shows_path
+      redirect_to :back
     end
   end
 
@@ -39,10 +40,10 @@ class Admin::ShowsController < Admin::ApplicationController
     if @show.update(show_params)
       flash[:notice] = 'User has been updated.'
       sign_in(@show, bypass: true) if @show == current_user
-      redirect_to admin_shows_path
+      redirect_to admin_gallery_shows_path(@gallery)
     else
       flash.now[:alert] = 'User has failed to update.'
-      render 'edit'
+      render :back
     end
 
   end
@@ -58,6 +59,15 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:email, :password)
+    params.require(:show).permit(
+      :title,
+      :artists,
+      :start_date,
+      :end_date,
+      :visible,
+      :reception_start,
+      :reception_end,
+      :text
+    )
   end
 end
