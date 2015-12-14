@@ -4,7 +4,7 @@
 </header>
 
 <% @galleries.each do |gallery| %>
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">
       <%= gallery.name %> - 
       <%= link_to "Edit", edit_admin_gallery_path(gallery), class: "edit navbar-btn" %>

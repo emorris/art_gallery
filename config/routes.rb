@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     root 'application#index'
     resources :users
     resources :pictures, only: [:destroy]
-    resources :artists
+    resources :artists do 
+      member do
+        patch :upload_picture
+      end
+    end
+    
     resources :galleries do
       member do
         patch :upload_picture

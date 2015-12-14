@@ -43,6 +43,15 @@ class Admin::ArtistsController < Admin::ApplicationController
     end
   end
 
+  def upload_picture
+    params[:artist][:pictures_attributes]['0'][:sort] = @artist.pictures.count
+    if @artist.update(artist_params)
+      render json: @artist.pictures.last
+    else
+      render json: { errors: @artist.errors.full_messages }, status: 422
+    end
+  end
+
   private
 
   def set_user
@@ -50,6 +59,6 @@ class Admin::ArtistsController < Admin::ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :bio)
+    params.require(:artist).permit(:name, :bio, pictures_attributes: [:image_file, :title, :text, :id, :sort])
   end
 end
