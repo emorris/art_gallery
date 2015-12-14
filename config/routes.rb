@@ -9,7 +9,13 @@ Rails.application.routes.draw do
       member do
         patch :upload_picture
       end
-      resources :shows
+
+      resources :shows do
+        member do
+          patch :upload_picture
+        end
+      end
+      
     end
     resources :news_posts
   end

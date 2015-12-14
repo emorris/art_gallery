@@ -11,7 +11,8 @@ a.add{
   @extend .btn;
 }
 
-a.new {
+a.new,
+a.add {
   @extend .btn-success;
 }
 

@@ -18,7 +18,7 @@
     <tr>
       <td><%= gallery.name %></td>
       <td><%=table_text(gallery.text.html_safe)%></td>
-      <td><%= link_to "Add Show", admin_gallery_shows_path(gallery), class: "add"%></td>
+      <td><%= link_to "Shows", admin_gallery_shows_path(gallery), class: "add"%></td>
       <td> <%= link_to "Edit", edit_admin_gallery_path(gallery), class: "edit"%>
       <%= link_to "Delete", admin_gallery_path(gallery), method: :delete,
       data: { confirm: "Are you sure you want to delete this Gallery #{gallery.name}?" },

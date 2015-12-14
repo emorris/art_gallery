@@ -1,3 +1,19 @@
 <header>Show Edit</header>
 
-<%= render "form", show: @show, gallery: @gallery %>
+<ul class="nav nav-tabs" id="info_picture">
+  <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+  <li role="presentation"><a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">Pictures</a></li>
+</ul>
+
+
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="info">
+    <%= render "form", show: @show, gallery: @gallery %>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="pictures">
+    <%= render "components/upload_pictures", objects: [@gallery, @show] %>
+     <%= render "components/sort_pictures", objects: [@gallery, @show] %>
+  </div>
+</div>
+

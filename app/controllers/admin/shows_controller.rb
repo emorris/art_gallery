@@ -45,7 +45,15 @@ class Admin::ShowsController < Admin::ApplicationController
       flash.now[:alert] = 'User has failed to update.'
       render :back
     end
+  end
 
+  def upload_picture
+    params[:show][:pictures_attributes]['0'][:sort] = @show.pictures.count
+    if @show.update(show_params)
+      render json: @show.pictures.last
+    else
+      render json: { errors: @show.errors.full_messages }, status: 422
+    end
   end
 
   private
@@ -67,7 +75,8 @@ class Admin::ShowsController < Admin::ApplicationController
       :visible,
       :reception_start,
       :reception_end,
-      :text
+      :text,
+      pictures_attributes: [:image_file, :title, :text, :id, :sort]
     )
   end
 end

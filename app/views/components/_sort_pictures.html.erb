@@ -1,6 +1,6 @@
 
 <div class="container">
-  <%= form_for [:admin, object], class: 'sort_pictures'   do |f| %>
+  <%= form_for [:admin]+ objects, class: 'sort_pictures'   do |f| %>
    <%= f.hidden_field :id  %>
     <table class="table table-striped" >
         <thead>
@@ -29,7 +29,7 @@
   <% end %>
 </div>
 
-<% model_name = object.class.to_s.underscore %>
+<% model_name = objects.last.class.to_s.underscore %>
 <script id="tr-sort-picture" type="text/x-handlebars-template">
      <tr class="sortable-picture">
       <td>
