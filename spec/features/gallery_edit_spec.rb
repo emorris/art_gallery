@@ -7,7 +7,7 @@ RSpec.feature 'Creating a Gallery' do
     login_as(user)
     visit '/admin'
     click_link 'Galleries'
-    page.find('tr', text: gallery.name).click_link('Edit')
+    page.find('.panel-heading', text: gallery.name).click_link('Edit')
   end
 
   scenario 'with valid data' do
@@ -16,9 +16,11 @@ RSpec.feature 'Creating a Gallery' do
     fill_in 'Name', with: title
     fill_in 'Text', with: text
     click_button 'Update Gallery'
-    within('table#galleries') do
+    within('.panel-heading') do
       expect(page).to have_content title
+      click_link 'Edit'
     end
+    expect(page).to have_content text
     visit '/'
     expect(page).to have_content title
     expect(page).to have_content text

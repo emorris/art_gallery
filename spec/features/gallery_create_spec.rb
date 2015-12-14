@@ -15,10 +15,11 @@ RSpec.feature 'Creating a Gallery' do
     fill_in 'Name', with: title
     fill_in 'Text', with: text
     click_button 'Create Gallery'
-    within('table#galleries') do
+    within('.panel-heading') do
       expect(page).to have_content title
-      expect(page).to have_content text
+       click_link 'Edit'
     end
+    expect(page).to have_content text
     visit '/'
     expect(page).to have_content title
     expect(page).to have_content text
