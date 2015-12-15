@@ -25,6 +25,8 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-ui-rails'
+gem "font-awesome-rails"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,4 +54,5 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'launchy'
   gem "selenium-webdriver"
+  gem 'database_cleaner'
 end

@@ -59,7 +59,7 @@ class Admin::ShowsController < Admin::ApplicationController
   private
 
   def set_gallery
-    @gallery = Gallery.find(params[:gallery_id]).includes(:shows)
+    @gallery = Gallery.includes(:shows).find(params[:gallery_id])
   end
   
   def set_show
