@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require_self
- *= require font-awesome
+*= require font-awesome
  */
+ @import "font-awesome";
  @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
- @import "font-awesome/scss/font-awesome.scss";
  @import "summernote/dist/summernote.css";
  @import "globals";

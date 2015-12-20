@@ -45,7 +45,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def upload_picture
-    params[:gallery][:pictures_attributes]['0'][:sort] = @gallery.pictures.count
+    params[:gallery][:pictures_attributes]['0'][:sort] = @gallery.pictures.last.sort + 1
     if @gallery.update(gallery_params)
       render json: @gallery.pictures.last
     else

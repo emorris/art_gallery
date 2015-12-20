@@ -3,6 +3,6 @@ FactoryGirl.define do
     sequence(:title) {|n| "title #{n}"}
     sequence(:text) {|n| "text #{n}"}
     sequence(:sort) {|n| n}
-    image_file { File.new("#{Rails.root}/spec/fixtures/1.jpg") }
+    sequence(:image_file) {|n| File.new("#{Rails.root}/spec/fixtures/#{n%4}.jpg") }
   end
 end

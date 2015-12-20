@@ -48,7 +48,7 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def upload_picture
-    params[:show][:pictures_attributes]['0'][:sort] = @show.pictures.count
+    params[:show][:pictures_attributes]['0'][:sort] = @show.pictures.last.sort + 1
     if @show.update(show_params)
       render json: @show.pictures.last
     else

@@ -10,8 +10,6 @@
                  <%= file_field_tag 'image_file', name:"#{model_name}[pictures_attributes][0][image_file]", multiple: true %>
             </span>
         </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
   <% end %>
     <div id="files" class="files"></div>
 </div>

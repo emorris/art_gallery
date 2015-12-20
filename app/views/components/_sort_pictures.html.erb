@@ -16,8 +16,8 @@
            <tr class="sortable-picture">
               <td><%= image_tag ff.object.image_file.thumb.url %></td>
               <%= ff.hidden_field :sort, class: 'order-input'  %>
-              <td><%= ff.text_field :title %></td>
-              <td><%= ff.text_field :text %></td>
+              <td><%= ff.text_field :title,  class: 'title' %></td>
+              <td><%= ff.text_field :text, class: 'text' %></td>
               <td> 
                 <%= link_to "Delete", admin_picture_path(ff.object), method: :delete, data: { confirm: "Are you sure you want to delete this Picture: #{ff.object.title}?" }, class: "delete"  %>
               </td>
