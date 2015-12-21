@@ -2,10 +2,9 @@
  <%= f.input :visible %>
   <%= f.input :title %>
   <%= f.input :artists %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :reception_start %>
-  <%= f.input :reception_end %>
-  <%= f.input :text, input_html: { class: 'summernote' }  %>
+  <%= date_selector f, :start_date  %>
+  <%= date_selector f, :end_date  %>
+  <%= date_time_selector f, :reception_start %>
+  <%= date_time_selector f, :reception_end %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
