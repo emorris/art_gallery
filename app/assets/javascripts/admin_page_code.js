@@ -18,15 +18,6 @@ $(document).ready(function(){
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
     done: function (e, data) {
       $("#sortable-pictures-block").append(sortPictureTr(data.result))
-    },
-    progressall: function (e, data) {
-      var progress = parseInt(data.loaded / data.total * 100, 10);
-      //$("#"+data.files[0].name).append(progress)
-      // console.log(progress)
-      // $('#progress .progress-bar').css(
-      //     'width',
-      //     progress + '%'
-      // );
     }
   }).on('fileuploaddone', function(e, data){
     $("#"+data.files[0].lastModified).remove()
