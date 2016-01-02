@@ -13,5 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sass-official
-//= require handlebars
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-sanitize
+//= require angular-rails-templates
+//= require_tree ./templates
+//= require dashboard
+
+
+
 

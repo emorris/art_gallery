@@ -4,6 +4,11 @@
     "bootstrap-sass-official": "latest",
     "summernote": "latest",
     "blueimp-file-upload": "latest",
-    "handlebars": "latest"
+    "handlebars": "latest",
+    "angular": "~> 1.5",
+    "angular-mocks": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "angular-sanitize": "latest"
   }
 }

@@ -1,12 +1,12 @@
 {
   "name": "blueimp-canvas-to-blob",
   "homepage": "https://github.com/blueimp/JavaScript-Canvas-to-Blob",
-  "version": "2.2.2",
-  "_release": "2.2.2",
+  "version": "3.1.0",
+  "_release": "3.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.2.2",
-    "commit": "73eb5ae5e75b4f26e72539ee14752b51444cea0d"
+    "tag": "v3.1.0",
+    "commit": "163015ed70a2b0de1f8cb29a15cb2753cf0aea7e"
   },
   "_source": "git://github.com/blueimp/JavaScript-Canvas-to-Blob.git",
   "_target": ">=2.1.1",

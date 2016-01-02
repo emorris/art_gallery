@@ -1,8 +1,8 @@
 {
   "name": "blueimp-tmpl",
-  "version": "2.5.6",
+  "version": "3.1.0",
   "title": "JavaScript Templates",
-  "description": "< 1KB lightweight, fast & powerful JavaScript templating engine with zero dependencies. Compatible with server-side environments like node.js, module loaders like RequireJS and all web browsers.",
+  "description": "1KB lightweight, fast & powerful JavaScript templating engine with zero dependencies. Compatible with server-side environments like Node.js, module loaders like RequireJS, Browserify or webpack and all web browsers.",
   "keywords": [
     "javascript",
     "templates",
@@ -13,30 +13,44 @@
     "name": "Sebastian Tschan",
     "url": "https://blueimp.net"
   },
-  "maintainers": [
-    {
-      "name": "Sebastian Tschan",
-      "url": "https://blueimp.net"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/blueimp/JavaScript-Templates.git"
   },
   "license": "MIT",
   "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-uglify": "0.11.0",
-    "grunt-contrib-jshint": "0.11.3",
-    "grunt-bump-build-git": "1.1.2",
-    "grunt-simple-mocha": "0.4.0",
-    "expect.js": "0.3.1"
+    "expect.js": "0.3.1",
+    "jshint": "2.8.0",
+    "mocha": "2.3.4",
+    "uglify-js": "2.6.1"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "jshint js test && mocha",
+    "build": "cd js && uglifyjs tmpl.js -c -m -o tmpl.min.js --source-map tmpl.min.js.map",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A js",
+    "postversion": "git push --tags origin master master:gh-pages && npm publish"
   },
   "bin": {
     "tmpl.js": "js/compile.js"
   },
-  "main": "js/tmpl.js"
+  "main": "js/tmpl.js",
+  "jshintConfig": {
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "freeze": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonbsp": true,
+    "nonew": true,
+    "quotmark": true,
+    "undef": true,
+    "unused": true,
+    "strict": true
+  }
 }
