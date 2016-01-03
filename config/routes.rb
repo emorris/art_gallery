@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :galleries, only: [:index, :show]
+  resources :artists, only: [:index, :show]
+  resources :news_posts, only: [:index, :show]
+
   namespace :admin do
     root 'application#index'
     resources :users
@@ -27,5 +30,5 @@ Rails.application.routes.draw do
     resources :news_posts
   end
 
-  root 'dashboard#angular'
+  root 'dashboard#index'
 end

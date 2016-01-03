@@ -3,6 +3,10 @@
     <div class="col-xs-12 col-md-12">
       <div class="row info_row">
         <h1>News</h1>
+        <article ng-repeat="newsPost in newsPosts">
+          <h1>{{newsPost.title}}</h1>
+          <div class="row" ng-bind-html="newsPost.text | unsafe"></div>
+        </article>
       </div>
     </div>
 </div>

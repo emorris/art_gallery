@@ -20,6 +20,9 @@
 //= require angular-rails-templates
 //= require_tree ./templates
 //= require dashboard
+//= require_tree ./services
+//= require_tree ./controllers
+
 
 
 
