@@ -1,4 +1,39 @@
 
 <article ng-app="dashboard">
+
+<nav class="row" id="top-nav" ng-controller="navController">
+    <div class="col-xs-12 col-md-4" ng-repeat="gallery in galleries">
+      <ul class="nav top-tabs row" role="tablist">
+        <li>
+          <a href="" ng-click="onClickGallery(gallery.id)"> {{ gallery.name }}</a>
+        </li>
+      </ul>
+    </div>  
+</nav>
+
   <div ng-view></div>
+
+  <div class="row" id="bottom-nav" ng-controller="navController">
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="" ng-click="onClickBottom('about')" >About/Contact</a>
+        </li>
+      </ul>
+    </div> 
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="" ng-click="onClickBottom('news')">News/Faire</a>
+        </li>
+      </ul>
+    </div> 
+    <div class="col-xs-12 col-md-4 ">
+      <ul class="nav bottom-tabs row" role="tablist">
+        <li>
+          <a href="" ng-click="onClickBottom('artists')">Artists/Etc.</a>
+        </li>
+      </ul>
+    </div> 
+</div>
 </article>
