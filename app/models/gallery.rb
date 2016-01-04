@@ -8,4 +8,7 @@ class Gallery < ActiveRecord::Base
     name
   end
 
+  def shows_by_year
+    shows.group_by{ |u| u.created_at.year }
+  end
 end

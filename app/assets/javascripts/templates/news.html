@@ -1,12 +1,10 @@
 
-<div class="row" id="galleries" >
-    <div class="col-xs-12 col-md-12">
-      <div class="row info_row">
-        <h1>News</h1>
-        <article ng-repeat="newsPost in newsPosts">
-          <h1>{{newsPost.title}}</h1>
-          <div class="row" ng-bind-html="newsPost.text | unsafe"></div>
-        </article>
-      </div>
+<div id="news" >
+    <div class="overflow-block col-xs-12 col-md-12">
+      <article class="panel panel-default" ng-repeat="newsPost in newsPosts">
+        <div class="panel-heading">{{newsPost.title}}</div>
+        <div class="panel-body" ng-bind-html="newsPost.text | unsafe"></div>
+      </article>
+      <div class="bottom_fill"></div>
     </div>
 </div>

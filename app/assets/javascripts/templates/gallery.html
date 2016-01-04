@@ -1,9 +1,15 @@
 
-<div class="row" id="galleries" >
-    <div class="col-xs-12 col-md-12">
-      <div class="row info_row">
-        <div  class="text" ng-bind-html="gallery.text | unsafe">
-        </div>
-      </div>
+<div  id="gallery" >
+  <div class="col-xs-2 col-md-2">
+    <div class="list-group"  ng-repeat="(year, year_shows) in shows">
+      <div class="list-group-item">{{year}}</div>
+      <a href="#" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in year_shows">{{show.title}}</a>
     </div>
+  </div>
+  <div class="overflow-block col-xs-10 col-md-10">
+    <div class="text">
+      <div ng-bind-html="gallery.text | unsafe"> </div>
+    </div>
+    <div class="bottom_fill"></div>
+  </div>
 </div>

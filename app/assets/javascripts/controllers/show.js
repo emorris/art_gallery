@@ -1,7 +1,7 @@
   var app = angular.module('dashboard')
-  app.controller("newsController",["$scope","$routeParams", "newsPostFactory",
-    function($scope, $routeParams, newsPostFactory) {
-      $scope.newsPosts = []
+  app.controller("showController",["$scope","$routeParams", "showsPostFactory",
+    function($scope, $routeParams, showsPostFactory) {
+      $scope.show = []
       $scope.newsPosts = newsPostFactory.getAll(function(data){
         console.log(data)
         $scope.newsPosts = data

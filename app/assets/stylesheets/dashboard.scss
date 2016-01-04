@@ -4,19 +4,39 @@
 
 $background-color-body: grey;
 $background-color-info: white;
+$active-link-color: red;
 $alpha-color-zero: rgba(255,0,0,0);
 
 body{
   background-color: $background-color-body
 }
 
-#galleries{
+.active_nav{
+  background-color:$active-link-color;
+  max-height:600px;
+  overflow: auto;
+}
+
+.bottom_fill{
+  @extend .clearfix;
+  height: 2em;
+}
+
+.overflow-block{
+  height:600px;
+  overflow: auto;
+}
+
+#main-block{
   background-color: $background-color-info;
+  padding: 1em;
+  padding-bottom: 0em;
+}
+
+#overview{ 
   .info_row{
-    border-right: solid 3px $background-color-body;
+    border-right: solid 3px $background-color-info;
     .text{
-      max-height:600px;
-      overflow: auto;
     }
   }
 }
@@ -33,6 +53,11 @@ body{
   background-color: $background-color-body;
   border-bottom: 0px;
   margin-right: -5px;
+  
+  li.active{
+    @extend .active_nav;
+  }
+
   li {
     margin-left: -15px;
     background-color: $background-color-body;
@@ -52,7 +77,7 @@ body{
       border-bottom-color: $background-color-info;
     }
     a:hover, a:active, a:focus{
-      color: blue;
+    
     }
   }
 }
@@ -60,13 +85,19 @@ body{
 #bottom-nav{
   @extend #top-nav;
   position: relative;
-  top: -20px;
+  top: -2em;
 }
+
+
 
 .bottom-tabs{
   @extend .top-tabs;
-
   background-color: $alpha-color-zero;
+  
+  li.active{
+     @extend .active_nav;
+  }
+  
   li {
     background-color: $alpha-color-zero;
     a {
