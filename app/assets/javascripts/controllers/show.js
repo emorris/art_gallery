@@ -1,10 +1,10 @@
   var app = angular.module('dashboard')
-  app.controller("showController",["$scope","$routeParams", "showsPostFactory",
-    function($scope, $routeParams, showsPostFactory) {
-      $scope.show = []
-      $scope.newsPosts = newsPostFactory.getAll(function(data){
-        console.log(data)
-        $scope.newsPosts = data
+  app.controller("showController",["$scope", "$location", "$routeParams", "showFactory",
+    function($scope, $location, $routeParams, showFactory) {
+      $scope.show = {};
+      $scope.show = showFactory.get({ 
+        "gallery_id": $routeParams.gallery_id, 
+        "show_id": $routeParams.show_id
       })
     }
   ])

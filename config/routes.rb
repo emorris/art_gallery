@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :galleries, only: [:index, :show] do
-    member do
-      resources :shows, only: [:index, :show]
-    end
+    resources :shows, only: [:index, :show]
   end
   resources :artists, only: [:index, :show]
   resources :news_posts, only: [:index, :show]
