@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
   end
 
   def show
-    @show = Gallery.find(params[:gallery_id]).shows.find(params[:id])
-    render json: @show
+    @show = Gallery.includes(:pictures).find(params[:gallery_id]).shows.find(params[:id])
+    render json: @show, include: :pictures
   end
 end

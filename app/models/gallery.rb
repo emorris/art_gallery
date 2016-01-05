@@ -9,6 +9,6 @@ class Gallery < ActiveRecord::Base
   end
 
   def shows_by_year
-    shows.group_by{ |u| u.created_at.year }
+    shows.order(:end_date).group_by{ |u| u.created_at.year }.sort_by {|k,v| v}.reverse
   end
 end

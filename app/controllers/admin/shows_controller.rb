@@ -39,7 +39,6 @@ class Admin::ShowsController < Admin::ApplicationController
   def update
     if @show.update(show_params)
       flash[:notice] = 'Show has been updated.'
-      byebug
       redirect_to admin_galleries_path
     else
       flash.now[:alert] = 'Show has failed to update.'
@@ -48,7 +47,7 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def upload_picture
-    params[:show][:pictures_attributes]['0'][:sort] = @show.pictures.last.sort + 1
+    params[:show][:pictures_attributes]['0'][:sort] = get_initial_sort(@show)
     if @show.update(show_params)
       render json: @show.pictures.last
     else

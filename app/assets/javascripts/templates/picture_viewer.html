@@ -1,0 +1,12 @@
+<div ng-if="pictures">
+  <div class="row" id="main_image_frame">
+    <img ng-src="{{picture_main.image_file.medium.url}}">
+     <div> {{picture_main.title}} - {{picture_main.text}}</div>
+  </div>
+  <div class="row" id="thumbNails">
+    <div class="col-xs-1 col-md-2" ng-repeat="picture in pictures">
+      <img ng-click="onClick(picture)" ng-src="{{picture.image_file.thumb.url}}">
+
+    </div>
+  </div>
+</div >

@@ -14,6 +14,7 @@ $(document).ready(function(){
 
   $('#image-upload').fileupload({
     url: $('#image_upload').attr('action'),
+    method: "PATCH",
     sequentialUploads: true,
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
     done: function (e, data) {

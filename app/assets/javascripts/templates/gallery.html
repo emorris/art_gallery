@@ -1,12 +1,9 @@
 
 <div  id="gallery" >
-  <div class="col-xs-2 col-md-2" ng-controller="showNavController">
-    <div class="list-group"  ng-repeat="(year, year_shows) in shows">
-      <div class="list-group-item">{{year}}</div>
-      <a href="" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in year_shows">{{show.title}}</a>
-    </div>
-  </div>
+  <show-nav></show-nav>
+
   <div class="overflow-block col-xs-10 col-md-10">
+    <picture-viewer pictures="gallery.pictures"></picture-viewer>
     <div class="text">
       <div ng-bind-html="gallery.text | unsafe"> </div>
     </div>

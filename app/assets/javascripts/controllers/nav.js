@@ -1,7 +1,7 @@
   var app = angular.module('dashboard')
   app.controller("navController", [ "$scope","$http","$location","galleryFactory", 
     function($scope, $http, $location, galleryFactory) {
-      var gallery_url = "/galleries/"
+      var gallery_url = 
       $scope.galleries =[]
 
       $scope.bottomLinks = [
@@ -24,11 +24,12 @@
       })
 
       $scope.onClickGallery = function(gallery_id){
-        $location.path( gallery_url + gallery_id);
+        $location.path( "/galleries/" + gallery_id);
       }
 
       $scope.isGalleryActive = function(gallery_id){
-        return (gallery_url + gallery_id) === $location.path()
+        var regex = new RegExp("^\/galleries\/" + gallery_id)
+        return regex.test($location.path())
       }
 
       $scope.onClickBottom = function(name){

@@ -1,6 +1,11 @@
 
-<div class="row" id="artists" >
-  <div class="overflow-block col-xs-12 col-md-12">
+<div class="container-fluid" id="artists" >
+<div class="col-xs-1 col-md-1"></div>
+  <div class="overflow-block col-xs-8 col-md-8">
+    <div class="panel panel-default"ng-repeat="artist in artists">
+     <div class="panel-heading">{{artist.name}}</div>
+     <div class="panel-body">{{artist.bio}} </div>
+    </article>
     <div class="bottom_fill"></div>
   </div>
 </div>
