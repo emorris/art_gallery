@@ -1,0 +1,9 @@
+<nav class="row" id="top-nav" ng-controller="navController">
+  <div class="col-xs-12 col-md-4" ng-repeat="gallery in galleries">
+    <ul  class="nav top-tabs row" role="tablist">
+      <li ng-class="{ active: isGalleryActive(gallery.id)}">
+        <a href="" ng-click="onClickGallery(gallery.id)"> {{ gallery.name }}</a>
+      </li>
+    </ul>
+  </div>  
+</nav>

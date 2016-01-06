@@ -83,6 +83,19 @@ app.directive('pictureViewer', function() {
 });
 
 
+app.directive('navBottom', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "nav_bottom.html"
+  };
+});
+
+app.directive('navTop', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "nav_top.html"
+  };
+});
 
 
 

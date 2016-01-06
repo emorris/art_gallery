@@ -1,27 +1,7 @@
 <div class="container-fluid">
   <div ng-app="dashboard">
-
-    <nav class="row" id="top-nav" ng-controller="navController">
-        <div class="col-xs-12 col-md-4" ng-repeat="gallery in galleries">
-          <ul  class="nav top-tabs row" role="tablist">
-            <li ng-class="{ active: isGalleryActive(gallery.id)}">
-              <a href="" ng-click="onClickGallery(gallery.id)"> {{ gallery.name }}</a>
-            </li>
-          </ul>
-        </div>  
-    </nav>
-
-    <div class="row" id="main-block" ng-view></div>
-
-    <div class="row" id="bottom-nav" ng-controller="navController">
-      <div class="col-xs-12 col-md-4 " ng-repeat="bottomLink in bottomLinks">
-        <ul class="nav bottom-tabs row" role="tablist" >
-          <li ng-class="{ active: isBottomActive(bottomLink.name)}">
-            <a href="" ng-click="onClickBottom(bottomLink.name)"> {{bottomLink.title}}</a>
-          </li>
-        </ul>
-      </div> 
-    </div>
-
+    <nav-top></nav-top>
+    <div class="row" id="main-block" ng-view ></div>
+    <nav-bottom></nav-bottom>
   </div>
 </div>

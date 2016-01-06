@@ -1,12 +1,16 @@
-<div ng-if="pictures">
-  <div class="row" id="main_image_frame">
-    <img ng-src="{{picture_main.image_file.medium.url}}">
-     <div> {{picture_main.title}} - {{picture_main.text}}</div>
-  </div>
-  <div class="row" id="thumbNails">
-    <div class="col-xs-1 col-md-2" ng-repeat="picture in pictures">
-      <img ng-click="onClick(picture)" ng-src="{{picture.image_file.thumb.url}}">
-
+<div class="picture-view row" ng-hide="!pictures.length">
+  <div class="col-xs-2 col-md-2 thumbs">
+    <div  ng-repeat="picture in pictures">
+      <a class="thumbnail" href="" ng-click="onClick(picture)"><img ng-src="{{picture.image_file.thumb.url}}"></a>
     </div>
   </div>
+
+  <div class="col-xs-9 col-md-9 big-image fluid-container">
+    <img ng-src="{{picture_main.image_file.medium.url}}">
+     <div class="caption">
+     <h3>{{picture_main.title}}</h3> 
+     <div>{{picture_main.text}}</div>
+     </div>
+  </div>
+
 </div >

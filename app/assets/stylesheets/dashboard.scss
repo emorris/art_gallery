@@ -2,9 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$color1: #db504a; //rgba(219, 80, 74, 100)
+$color2: #ff6f59; //rgba(255, 111, 89, 100)
+$color3: #254441; //rgba(37, 68, 65, 100)
+$color4: #43aa8b; //rgba(67, 170, 139, 100)
+$color5: #b2b09b; //rgba(178, 176, 155, 100)
+
 $background-color-body: grey;
 $background-color-info: white;
-$active-link-color: red;
+$active-link-color: $color1;
 $alpha-color-zero: rgba(255,0,0,0);
 
 body{
@@ -13,7 +19,6 @@ body{
 
 .active_nav{
   background-color:$active-link-color;
-  max-height:600px;
   overflow: auto;
 }
 
@@ -23,7 +28,7 @@ body{
 }
 
 .overflow-block{
-  height:600px;
+  height:650px;
   overflow: auto;
 }
 
@@ -89,7 +94,6 @@ body{
 }
 
 
-
 .bottom-tabs{
   @extend .top-tabs;
   background-color: $alpha-color-zero;
@@ -105,4 +109,32 @@ body{
       border-bottom: 30px solid $background-color-body;
     }
   }
+}
+
+
+.picture-view{
+  .big-image img{
+    height:400px;
+  }
+  .thumbs{
+    height:400px;
+    overflow:auto;
+  }
+}
+
+show-nav{
+  .list-group{
+    border:none
+  }
+  .list-group-item{
+    border:none;
+  }
+  .list-group-item:last-child{
+    border-radius: 0px;
+  }
+  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+    background-color: $active-link-color;
+    border-color: $active-link-color;
+  }
+
 }

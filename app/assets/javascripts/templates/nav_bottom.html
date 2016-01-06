@@ -1,0 +1,9 @@
+<div class="row" id="bottom-nav" ng-controller="navController">
+  <div class="col-xs-12 col-md-4 " ng-repeat="bottomLink in bottomLinks">
+    <ul class="nav bottom-tabs row" role="tablist" >
+      <li ng-class="{ active: isBottomActive(bottomLink.name)}">
+        <a href="" ng-click="onClickBottom(bottomLink.name)"> {{bottomLink.title}}</a>
+      </li>
+    </ul>
+  </div> 
+</div>
