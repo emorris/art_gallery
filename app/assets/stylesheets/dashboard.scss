@@ -137,5 +137,22 @@ show-nav{
     background-color: $active-link-color;
     border-color: $active-link-color;
   }
+  .year-header{
+    bottom-bottom: solid;
+  }
+  .date{
+    font-size:11px;
+  }
 
+}
+
+picture-viewer{
+  .thumbnail{
+    display: block;
+    padding: 0px;
+    margin-bottom: 10px;
+    line-height: 1.42857;
+    //background-color: $color2;
+    border: none;
+  }
 }

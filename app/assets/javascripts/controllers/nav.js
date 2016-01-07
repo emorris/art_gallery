@@ -24,6 +24,7 @@
       })
 
       $scope.onClickGallery = function(gallery_id){
+        console.log(gallery_id)
         $location.path( "/galleries/" + gallery_id);
       }
 

@@ -1,6 +1,6 @@
 var app = angular.module('dashboard')
 app.factory('showFactory',  ['$http','$resource', function($http, $resource){
-  var Show = $resource('/galleries/:gallery_id/shows/:show_id.json')
+  var Show = $resource('/galleries/:gallery_id/shows/:show_id.json', {cache: true})
     Show.getAll =  function(gallery_id, callback){
         return $http.get("/galleries/"+gallery_id+"/shows.json",{cache: true}).success(
         function(data) { 

@@ -1,6 +1,16 @@
 
 <div id="news" >
-    <div class="overflow-block col-xs-12 col-md-12">
+   <div class="overflow-block col-xs-2 col-md-2" >
+    <div class="row">
+      <div class="list-group" ng-repeat="newsPost in newsPosts">
+        <a href="" ng-class="{ active: isActive(newsPost.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">
+          {{newsPost.title}}
+          <div class="date">{{newsPost.publish_date | date}}</div>
+        </a>
+      </div>
+    </div>
+   </div>
+    <div class="overflow-block col-xs-8 col-md-8">
       <article class="panel panel-default" ng-repeat="newsPost in newsPosts">
         <div class="panel-heading">{{newsPost.title}}</div>
         <div class="panel-body" ng-bind-html="newsPost.text | unsafe"></div>

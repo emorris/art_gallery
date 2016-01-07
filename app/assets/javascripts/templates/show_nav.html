@@ -1,17 +1,40 @@
-  <div  class="col-xs-2 col-md-2">
-    <h1 "list-group-item">Current</h1>
-    <div class="list-group" >
-        <a href="" ng-class="{ active: isActive(shows.current.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">{{shows.current.title}} {{shows.current.start_date | date}} - {{shows.current.end_date | date}}</a>
-    </div>
-    <h1 "list-group-item">Future</h1>
-    <div class="list-group"  ng-repeat="show_array in shows.future">
-        <div class="list-group-item">{{show_array[0]}}</div>
-        <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">{{show.title}} {{show.start_date | date}} - {{show.end_date | date}}</a>
+  <nav  class="col-xs-2 col-md-2">
+    <div class="row">
+      <div class="list-group" >
+          <a href="" ng-class="{ active: isGalleryActive(gallery.id)}" class="list-group-item" ng-click="galleryOnClick(gallery.id)">
+            Gallery Info
+          </a>
+      </div>
     </div>
     
-    <h1 "list-group-item">Past</h1>
-    <div class="list-group"  ng-repeat="show_array in shows.past">
-        <div class="list-group-item">{{show_array[0]}}</div>
-        <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">{{show.title}} {{show.start_date | date}} - {{show.end_date | date}}</a>
+    <div class="row" ng-show="!!shows.current.length">
+      <h3>Current Shows</h3>
+      <div class="list-group" >
+          <a href="" ng-class="{ active: isActive(shows.current.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">
+            {{shows.current.title}}
+            <div class="date">{{show.start_date | date}} - {{show.end_date | date}}</div>
+          </a>
+      </div>
     </div>
-  </div>
+
+    <div class="row" ng-show="!!shows.future.length">
+      <h3 ng-show="!!shows.future.length">Future Shows</h3>
+      <div class="list-group"  ng-repeat="show_array in shows.future">
+          <div class="year-header">{{show_array[0]}}</div>
+          <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">
+            {{show.title}} 
+            <div class="date">{{show.start_date | date}} - {{show.end_date | date}}</div>
+          </a>
+      </div>
+    </div>
+    <div class="row" ng-show="!!shows.past.length">
+      <h3>Past Shows</h3>
+      <div class="list-group"  ng-repeat="show_array in shows.past">
+          <div class="year-header">{{show_array[0]}}</div>
+          <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">
+            {{show.title}} 
+            <div class="date">{{show.start_date | date}} - {{show.end_date | date}}</div>
+          </a>
+      </div>
+    </div>
+  </nav>

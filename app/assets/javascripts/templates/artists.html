@@ -1,11 +1,20 @@
 
 <div class="container-fluid" id="artists" >
-<div class="col-xs-1 col-md-1"></div>
-  <div class="overflow-block col-xs-8 col-md-8">
-    <div class="panel panel-default"ng-repeat="artist in artists">
-     <div class="panel-heading">{{artist.name}}</div>
-     <div class="panel-body">{{artist.bio}} </div>
-    </article>
+  <div class="overflow-block col-xs-2 col-md-2" >
+    <div class="row">
+      <div class="list-group" ng-repeat="artist in artists">
+        <a href="" ng-class="{ active: isActive(artist.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">
+        {{artist.name}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-8 col-md-8"></div>
+    <div class="overflow-block col-xs-8 col-md-8">
+      <div class="panel panel-default"ng-repeat="artist in artists">
+        <div class="panel-heading">{{artist.name}}</div>
+        <div class="panel-body">{{artist.bio}} </div>
+      </div>
     <div class="bottom_fill"></div>
   </div>
 </div>

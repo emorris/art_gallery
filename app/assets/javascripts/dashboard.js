@@ -45,21 +45,7 @@ app.directive('showNav', function() {
   return {
     restrict: 'E',
     templateUrl: "show_nav.html",
-    controller:["$scope", "$location", "$routeParams", "showFactory",
-      function($scope, $location, $routeParams, showFactory) {
-        $scope.shows = [];
-        showFactory.getAll($routeParams.gallery_id, function(data){
-          $scope.shows = data
-        });
-        $scope.showOnClick = function(show_id){
-          $location.path("/galleries/" + $routeParams.gallery_id + "/shows/" + show_id )
-        }
-        
-        $scope.isActive = function(show_id){
-          return ("/galleries/" + $routeParams.gallery_id + "/shows/" + show_id) === $location.path()
-        }
-      }
-    ]
+    controller:"showNavController"
   };
 });
 
