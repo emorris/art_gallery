@@ -1,6 +1,17 @@
-  <div class="col-xs-2 col-md-2">
-    <div class="list-group"  ng-repeat="show_array in shows">
-      <div class="list-group-item">{{show_array[0]}}</div>
-      <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">{{show.title}} {{show.start_date | date}} - {{show.end_date | date}}</a>
+  <div  class="col-xs-2 col-md-2">
+    <h1 "list-group-item">Current</h1>
+    <div class="list-group" >
+        <a href="" ng-class="{ active: isActive(shows.current.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">{{shows.current.title}} {{shows.current.start_date | date}} - {{shows.current.end_date | date}}</a>
+    </div>
+    <h1 "list-group-item">Future</h1>
+    <div class="list-group"  ng-repeat="show_array in shows.future">
+        <div class="list-group-item">{{show_array[0]}}</div>
+        <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">{{show.title}} {{show.start_date | date}} - {{show.end_date | date}}</a>
+    </div>
+    
+    <h1 "list-group-item">Past</h1>
+    <div class="list-group"  ng-repeat="show_array in shows.past">
+        <div class="list-group-item">{{show_array[0]}}</div>
+        <a href="" ng-class="{ active: isActive(show.id)}" class="list-group-item" ng-click="showOnClick(show.id)" ng-repeat="show in show_array[1]">{{show.title}} {{show.start_date | date}} - {{show.end_date | date}}</a>
     </div>
   </div>

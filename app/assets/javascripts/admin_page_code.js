@@ -9,9 +9,21 @@ $(document).ready(function(){
   window.setTimeout(function() { $(".alert-notice").hide('close'); }, 2000);
   
 
-  $('.summernote').summernote('code', $('textarea.summernote:first').text())
-  
-
+ 
+  var summernoteObj =  $('.summernote').summernote({
+    toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'italic', 'underline', 'clear']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'hr']],
+    ['view', ['fullscreen', 'codeview']],
+    ['help', ['help']]
+  ],
+  })
+  summernoteObj.summernote('code', $('textarea.summernote:first').text())
   $('#image-upload').fileupload({
     url: $('#image_upload').attr('action'),
     method: "PATCH",

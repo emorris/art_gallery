@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
   def index
     
-    render json: Gallery.find(params[:gallery_id]).shows_by_year
+    render json: Gallery.find(params[:gallery_id]).shows.time_separation
   end
 
   def show
