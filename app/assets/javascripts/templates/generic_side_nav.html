@@ -1,0 +1,5 @@
+<div class="list-group">
+  <div ng-repeat="obj in objects">
+    <a href="" ng-class="{ active: isActive({obj:obj})}" class="list-group-item" ng-click="onClick({obj:obj})" ng-bind="textFormat({obj:obj})"></a>
+  </div>
+</div>

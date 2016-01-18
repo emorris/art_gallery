@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
-    render json: @artist
+    @artist = Artist.includes(:pictures).find(params[:id])
+    render json: @artist, include: :pictures
   end
 end

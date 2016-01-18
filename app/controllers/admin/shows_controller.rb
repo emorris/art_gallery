@@ -47,7 +47,7 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def upload_picture
-    params[:show][:pictures_attributes]['0'][:sort] = get_initial_sort(@show)
+    set_initial_picture_sort(@show)
     if @show.update(show_params)
       render json: @show.pictures.last
     else

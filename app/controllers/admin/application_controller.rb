@@ -6,7 +6,9 @@ class Admin::ApplicationController < ApplicationController
   end
 
   private
-    def get_initial_sort(obj)
-      obj.pictures.last.nil? ?  0 : obj.pictures.last.sort + 1 
+    def initial_picture_sort(obj)
+      symbol = obj.model_name.param_key.to_sym
+      sort = obj.pictures.last.nil? ? 0 : obj.pictures.last.sort + 1
+      params[symbol][:pictures_attributes]['0'][:sort] = sort
     end
 end

@@ -5,7 +5,7 @@ class NewsPostsController < ApplicationController
   end
 
   def show
-    @news_post = NewsPost.find(params[:id]).publish_ready
+    @news_post = NewsPost.publish_ready.find(params[:id])
     render json: @news_post
   end
 end

@@ -31,7 +31,13 @@ app.config([
     }).when("/news", {
       controller: "newsController",
       templateUrl: "news.html"
+    }).when("/news/:id", {
+      controller: "newsController",
+      templateUrl: "news.html"
     }).when("/artists", {
+      controller: "artistsController",
+      templateUrl: "artists.html"
+    }).when("/artists/:id", {
       controller: "artistsController",
       templateUrl: "artists.html"
     }).when("/galleries/:gallery_id/shows/:show_id", {
@@ -80,6 +86,19 @@ app.directive('navTop', function() {
   return {
     restrict: 'E',
     templateUrl: "nav_top.html"
+  };
+});
+
+app.directive('sideNav', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      objects: '=',
+      onClick: '&',
+      textFormat: '&',
+      isActive: '&'
+    },
+    templateUrl: "generic_side_nav.html"
   };
 });
 

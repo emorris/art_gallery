@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="row" ng-show="!!shows.future.length">
+    <div class="row" ng-hide="shows.future.length == 0">
       <h3 ng-show="!!shows.future.length">Future Shows</h3>
       <div class="list-group"  ng-repeat="show_array in shows.future">
           <div class="year-header">{{show_array[0]}}</div>
@@ -27,7 +27,8 @@
           </a>
       </div>
     </div>
-    <div class="row" ng-show="!!shows.past.length">
+
+    <div class="row" ng-hide="shows.past.length == 0">
       <h3>Past Shows</h3>
       <div class="list-group"  ng-repeat="show_array in shows.past">
           <div class="year-header">{{show_array[0]}}</div>
