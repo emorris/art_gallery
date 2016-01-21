@@ -1,8 +1,14 @@
 
 <div id="news" >
-   <div class="overflow-block col-xs-2 col-md-2" >
-    <div class="row">
-     <side-nav objects="newsPosts" is-active="isActive(obj)" on-click="navOnClick(obj)" text-format="linkTextFormat(obj)"></side-nav>
+  <nav class="col-xs-2 col-md-2 sub-nav overflow-block">
+    <div class="row" ng-repeat="year in newsPosts.years_in_order">
+      <h3>{{year }} ({{newsPosts['counts_by_year'][year]}})</h3>
+      <div class="list-group"  ng-repeat="newsPost_link in newsPosts['links_by_year'][year]">
+          <a href="" ng-class="{ active: isActive(newsPost_link.id)}" class="list-group-item" ng-click="navOnClick(newsPost_link.id)">
+            {{newsPost_link.title}}
+            <div class="date">{{newsPost_link.publish_date | date}}</div>
+          </a>
+      </div>
     </div>
    </div>
     <div class="overflow-block col-xs-8 col-md-8">
@@ -10,6 +16,7 @@
         <div class="panel-heading">{{newsPost.title}}</div>
         <div class="panel-body" ng-bind-html="newsPost.text | unsafe"></div>
       </article>
-      <div class="bottom_fill"></div>
-    </div>
+    </div> 
+  </nav>
+  <div class="bottom_fill"></div>
 </div>

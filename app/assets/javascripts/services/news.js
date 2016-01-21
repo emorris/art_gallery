@@ -4,6 +4,7 @@ app.factory('newsPostFactory',  ['$http','$resource', function($http, $resource)
     NewsPost.getAll =  function(callback){
         return $http.get("/news_posts.json",{cache: true}).success(
         function(data) { 
+          console.log(data)
           callback(data);
       }).error(
         function(data, status ,headers, config) {

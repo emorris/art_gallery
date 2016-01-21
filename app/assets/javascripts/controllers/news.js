@@ -1,28 +1,31 @@
   var app = angular.module('dashboard')
   app.controller("newsController",["$scope","$routeParams", "newsPostFactory", "$location",
     function($scope, $routeParams, newsPostFactory, $location) {
+
       $scope.newsPosts = []
-      
-      $scope.newsPosts = newsPostFactory.getAll(function(data){
+      $scope.path =  $location.path()
+
+      newsPostFactory.getAll(function(data){
         $scope.newsPosts = data
+        var years = $scope.newsPosts['years_in_order']
+        if (typeof $routeParams.id == "undefined") {
+          var id = $scope.newsPosts.links_by_year[years[0]][0].id
+          $location.path("/news/"+ id, false);
+          $scope.newsPost = newsPostFactory.get({ "id": id})
+        }
       })
 
-      if (typeof $routeParams.id == "undefined"){
-        $scope.$watch("newsPosts",function(){
-          console.log($scope.newsPosts)
-          $location.path("/news/"+$scope.newsPosts[0].id)
-        })
-      } else {
+      if (typeof $routeParams.id != "undefined"){
         $scope.newsPost = newsPostFactory.get({ "id": $routeParams.id})
-
       }
 
-      $scope.navOnClick = function(obj){
-        $location.path("/news/"+obj.id)
+      $scope.navOnClick = function(id, $event){
+        $scope.newsPost = newsPostFactory.get({ "id": id})
+        $location.path("/news/"+ id, false);
       }
       
-      $scope.isActive = function(obj){
-        return ("/news/"+ obj.id) === $location.path()
+      $scope.isActive = function(id){
+        return ("/news/"+ id) === $location.path()
       }
 
       $scope.linkTextFormat = function(obj){

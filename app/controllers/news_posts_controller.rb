@@ -1,7 +1,7 @@
 class NewsPostsController < ApplicationController
   def index
-    @news_posts = NewsPost.all.publish_ready
-    render json: @news_posts
+    @news_posts_links = NewsPost.all.news_links_format
+    render json: @news_posts_links
   end
 
   def show

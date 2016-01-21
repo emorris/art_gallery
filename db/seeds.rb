@@ -8,3 +8,13 @@
 
 
 User.create(:email => "admin@example.com", :password => "password", :password_confirmation => "password") unless User.exists?
+
+if Rails.env == "development"
+	100.times.each do |i|
+		NewsPost.create({ 
+			title: Faker::Hipster.sentence,
+			text: Faker::Hipster.paragraph(i%3),
+			publish_date: Faker::Date.between(2.years.ago, Date.today)
+		})
+	end
+end

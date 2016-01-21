@@ -21,7 +21,7 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   username: user
-  password: password
+  password: 
 
 
 development:
@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: art_gallery_production
-  username: art_gallery
-  password: <%= ENV['ART_GALLERY_DATABASE_PASSWORD'] %>
+  database: art_gallery_development
