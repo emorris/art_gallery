@@ -38,7 +38,8 @@
       }
 
       $scope.isBottomActive = function(name){
-        return ("/" + name) === $location.path()
+        var regex =  new RegExp("^\/"+name)
+        return regex.test($location.path())
       }
 
   }])

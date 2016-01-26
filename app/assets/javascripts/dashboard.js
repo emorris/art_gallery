@@ -116,6 +116,38 @@ app.directive('sideNav', function() {
   };
 });
 
+app.directive('newsNavElement', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      year: '=',
+      objects: '=',
+      onClick: '&'
+    },
+    controller: ["$scope","$routeParams", "$location", "newsPostFactory", function($scope, $routeParams, $location, newsPostFactory){
+      $scope.show = false;
+      $scope.present_year = new Date().getFullYear()
+      $scope.isActive = function(id, event){
+        return ("/news/"+ id) === $location.path()
+      }
+
+      $scope.navHeaderOnClick = function(event){
+        $scope.show = !$scope.show
+      }
+
+      $scope.linkTextFormat = function(obj){
+        return obj.title
+      }
+      $scope.showHeader = function(year){
+        if($scope.present_year == year){
+          $scope.show = true
+        }
+      }
+    }],
+    templateUrl: "news_nav_element.html"
+  };
+});
+
 
 
 

@@ -146,6 +146,10 @@ body{
 
 }
 
+.main-info-block{
+  padding:15px;
+}
+
 picture-viewer{
   .thumbnail{
     display: block;
@@ -155,4 +159,45 @@ picture-viewer{
     //background-color: $color2;
     border: none;
   }
+  .image{
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+  }
+  .caption{
+    padding:10px;
+    .title{
+      font-weight: bold;
+      text-align:center;
+      font-size: 19px;
+    }
+    .text{
+      text-align:left;
+    }
+
+  }
+}
+
+.panel{
+  background-color: $alpha-color-zero;
+  border:none;
+  box-shadow:none;
+  
+  .panel-heading{
+    font-size: 21px;
+    background-color: $alpha-color-zero;
+    span {
+      font-size: 10px;
+      text-align: left;
+      vertical-align: top;
+      display:block;
+    }
+
+    .panel-body{
+      padding: 20px 15px;
+    }
+  }
+
 }

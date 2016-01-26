@@ -45,7 +45,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def upload_picture
-     set_initial_picture_sort(@gallery)
+     initial_picture_sort(@gallery)
     if @gallery.update(gallery_params)
       render json: @gallery.pictures.last
     else

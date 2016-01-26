@@ -19,17 +19,9 @@
         $scope.newsPost = newsPostFactory.get({ "id": $routeParams.id})
       }
 
-      $scope.navOnClick = function(id, $event){
-        $scope.newsPost = newsPostFactory.get({ "id": id})
-        $location.path("/news/"+ id, false);
-      }
-      
-      $scope.isActive = function(id){
-        return ("/news/"+ id) === $location.path()
-      }
-
-      $scope.linkTextFormat = function(obj){
-        return obj.title
+      $scope.navOnClick = function(obj){
+        $scope.newsPost = newsPostFactory.get({ "id": obj.id})
+        $location.path("/news/"+ obj.id, false);
       }
     }
   ])

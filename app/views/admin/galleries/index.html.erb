@@ -21,6 +21,7 @@
           <tr>
             <th>Name</th>
             <th>Text</th>
+            <th>Artists</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th></th>
@@ -30,10 +31,10 @@
         <% gallery.shows.each do |show| %>
           <tr>
             <td><%= show.title %></td>
-            <td><%= show.artists %></td>
+            <td><%=table_text(show.text)%></td>
+            <td><%= table_text(show.artists) %></td>
             <td><%= show.start_date %></td>
             <td><%= show.end_date %></td>
-            <td><%=table_text(show.text)%></td>
             <td> <%= link_to "Edit", edit_admin_gallery_show_path(gallery, show), class: "edit"%>
             <%= link_to "Delete", admin_gallery_show_path(gallery, show), method: :delete,
             data: { confirm: "Are you sure you want to delete this Artist: #{show.title}?" },
