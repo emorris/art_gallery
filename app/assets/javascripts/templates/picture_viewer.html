@@ -6,11 +6,17 @@
   </div>
 
   <div class="col-xs-9 col-md-9 big-image fluid-container">
-    <div class="row image"> <img ng-src="{{picture_main.image_file.medium.url}}"></div>
-
-    <div class="row caption">
-      <div class="title">{{picture_main.title}}</div> 
-      <div class="text">{{picture_main.text}}</div>
+    <div class="row image"> 
+      <a href="" class="img_center darken">
+        <img ng-src="{{picture_main.image_file.medium.url}}">
+        <span class="caption">
+          <div class="title">{{picture_main.title}}</div> 
+          <div class="text">{{picture_main.text}} </div>
+        </span>
+      </a>
     </div>
+  </div>
+
+
   </div>
 </div >
