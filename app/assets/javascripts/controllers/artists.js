@@ -6,10 +6,13 @@
       artistFactory.getAll(function(data){
         $scope.artists = data
       })
+      $scope.$watch('artist', function(){
+        window_resize()
+      })
       
       if (typeof $routeParams.id == "undefined"){
         $scope.$watch("artists",function(){
-          $location.path("/artists/"+$scope.artists[0].id)
+          $location.path("/artists/" + $scope.artists[0].id)
         })
       } else {
         $scope.artist = artistFactory.get({ "id": $routeParams.id})

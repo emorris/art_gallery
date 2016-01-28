@@ -3,9 +3,10 @@
   <show-nav></show-nav>
   <div class="overflow-block col-xs-10 col-md-10 main-info-block">
     <picture-viewer pictures="gallery.pictures"></picture-viewer>
-    <div class="text">
-      <div ng-bind-html="gallery.text | unsafe"> </div>
-    </div>
+    <article class="panel panel-default">
+      <div class="panel-heading">Gallery Info </div>
+      <div class="panel-body" ng-bind-html="gallery.text  | unsafe"></div>
+    </article>
     <div class="bottom_fill"></div>
   </div>
 </div>

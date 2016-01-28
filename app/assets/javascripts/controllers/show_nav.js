@@ -9,11 +9,22 @@
       });
 
       $scope.showOnClick = function(show_id){
-        $location.path("/galleries/" + $routeParams.gallery_id + "/shows/" + show_id )
+        var regex = /\/galleries\/\d+$/
+        var url = "/galleries/" + $routeParams.gallery_id + "/shows/" + show_id
+        if (regex.test($location.path())) {
+          $location.path(url)
+        } else {
+          $scope.show = showFactory.get({ 
+            "gallery_id": $routeParams.gallery_id, 
+            "show_id": show_id
+          })
+          $location.path(url, false)
+        }
+        
       }
 
       $scope.galleryOnClick = function(id){
-        $location.path("/galleries/" + id )
+        $location.path("/galleries/" + id)
       }
 
       $scope.isActive = function(show_id){
