@@ -9,7 +9,7 @@
 
   <div class="overflow-block col-xs-10 col-md-10">
     <article class="panel panel-default">
-      <div class="panel-heading"><span class="date">{{newsPost.publish_date}}</span>{{newsPost.title}} </div>
+      <div class="panel-heading"><span class="date">{{newsPost.publish_date | date}}</span>{{newsPost.title}} </div>
       <div class="panel-body" ng-bind-html="newsPost.text | unsafe"></div>
     </article>
   </div> 

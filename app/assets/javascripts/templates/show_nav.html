@@ -7,12 +7,12 @@
       </div>
     </div>
     
-    <div class="row" ng-show="!!shows.current.length">
+    <div class="row" ng-hide="shows.current | isEmpty">
       <h3>Current Shows</h3>
       <div class="list-group" >
           <a href="" ng-class="{ active: isActive(shows.current.id)}" class="list-group-item" ng-click="showOnClick(shows.current.id)">
             {{shows.current.title}}
-            <div class="date">{{show.start_date | date}} - {{show.end_date | date}}</div>
+            <div class="date">{{shows.current.start_date | date}} - {{shows.current.end_date | date}}</div>
           </a>
       </div>
     </div>

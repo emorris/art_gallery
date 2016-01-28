@@ -1,11 +1,11 @@
 
 <div class="container-fluid" id="artists" >
-  <div class="overflow-block col-xs-2 col-md-2" g-controller="artistsController">
+  <nav class="overflow-block col-xs-2 col-md-2 sub-nav" ng-controller="artistsController">
    <side-nav objects="artists" is-active="isActive(obj)" on-click="navOnClick(obj)" text-format="linkTextFormat(obj)" ></side-nav>
-  </div>
+  </nav>
     <div class="overflow-block col-xs-10 col-md-10">
      <picture-viewer pictures="artist.pictures"></picture-viewer>
-      <div class="panel panel-default">
+      <div class="panel panel-default main-info-block">
         <div class="panel-heading">{{artist.name}}</div>
         <div class="panel-body" ng-bind-html="artist.bio  | unsafe"></div>
       </div>

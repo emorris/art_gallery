@@ -36,8 +36,8 @@ if Rails.env == "development"
 						title: Faker::Hipster.sentence,
 						text: Faker::Hipster.paragraph(30),
 						artists: Faker::Hipster.paragraph(50),
-						start_date: i.weeks.ago,
-						end_date: (i +1).weeks.ago - 1.day,
+						start_date: (i -1).weeks.ago,
+						end_date: (i -2).weeks.ago - 1.day,
 						reception_start: i.weeks.ago,
 						reception_end: i.weeks.ago + 2.hours,
 						visible: true

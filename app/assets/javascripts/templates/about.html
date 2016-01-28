@@ -1,6 +1,17 @@
 
 <div class="container" id="about" >
-  <div class="overflow-block col-xs-12 col-md-12">    
+  
+  <div class="overflow-block col-xs-6 col-md-6"> 
+    <article class="panel panel-default">
+      <div class="panel-heading"> About </div>
+      <div class="panel-body" ng-bind-html="appSettings.about_text  | unsafe"></div>
+    </article>
+  </div>
+
+  <div class="overflow-block col-xs-6 col-md-6">   
+    <div class="panel panel-default">
+      <div class="panel-heading"> Contact</div>
+    </div>
     <form class="form-horizontal">
       <div class="form-group">
         <label for="inputName" class="col-sm-2 control-label">Name</label>

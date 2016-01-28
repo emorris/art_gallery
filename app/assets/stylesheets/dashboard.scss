@@ -15,7 +15,8 @@ $alpha-color-zero: rgba(255,0,0,0);
 
 body{
   font-family: 'Fondamento', cursive;
-  background-color: $background-color-body
+  background-color: $background-color-body;
+  overflow:hidden;
 }
 
 .active_nav{

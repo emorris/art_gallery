@@ -22,6 +22,8 @@
 //= require dashboard
 //= require_tree ./services
 //= require_tree ./controllers
+//= require directives
+//= require_tree ./add_ons
 
 
 
