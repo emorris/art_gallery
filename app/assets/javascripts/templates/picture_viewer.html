@@ -11,7 +11,7 @@
         <img ng-src="{{picture_main.image_file.medium.url}}">
         <span class="caption">
           <div class="title">{{picture_main.title}}</div> 
-          <div class="text">{{picture_main.text}} </div>
+          <div class="text" ng-bind-html="picture_main.text | unsafe"></div>
         </span>
       </a>
     </div>

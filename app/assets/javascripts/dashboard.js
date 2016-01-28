@@ -7,6 +7,7 @@ var app = angular.module(
     'templates',
     'ngSanitize',
     'ngResource',
+    'noCAPTCHA'
   ]
 )
 

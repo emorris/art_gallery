@@ -16,10 +16,9 @@
            <tr class="sortable-picture">
               <td><%= image_tag ff.object.image_file.thumb.url %></td>
               <%= ff.hidden_field :sort, class: 'order-input'  %>
-              <td><%= ff.text_field :title,  class: 'title' %></td>
-              <td><%= ff.text_field :text, class: 'text' %></td>
+              <td><%= ff.text_area :text, class: 'text summernote' %></td>
               <td> 
-                <%= link_to "Delete", admin_picture_path(ff.object), method: :delete, data: { confirm: "Are you sure you want to delete this Picture: #{ff.object.title}?" }, class: "delete"  %>
+                <%= link_to "Delete", admin_picture_path(ff.object), method: :delete, data: { confirm: "Are you sure you want to delete this Picture: #{ff.object.text}?" }, class: "delete"  %>
               </td>
             </tr>
           <% end %>
@@ -37,10 +36,7 @@
       </td>
       <input class="order-input" type="hidden" value="{{sort}}" name="<%= model_name %>[pictures_attributes][{{id}}][sort]" />
       <td>
-        <input label="false" type="text" value="" name="<%= model_name %>[pictures_attributes][{{id}}][title]" />
-      </td>
-      <td>
-        <input label="false" type="text" value="" name="<%= model_name %>[pictures_attributes][{{id}}][text]" />
+        <input label="false" type="text" value="" name="<%= model_name %>[pictures_attributes][{{id}}][text]" class="summernote"/>
       </td>
       <td> 
       <a data-confirm="Are you sure you want to delete this Picture: ?" class="delete" rel="nofollow" data-method="delete" href="/admin/pictures/{{id}}">Delete</a>

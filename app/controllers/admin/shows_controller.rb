@@ -72,7 +72,7 @@ class Admin::ShowsController < Admin::ApplicationController
       :reception_start,
       :reception_end,
       :text,
-      pictures_attributes: [:image_file, :title, :text, :id, :sort]
+      pictures_attributes: Picture.settable_attrs
     )
   end
 end

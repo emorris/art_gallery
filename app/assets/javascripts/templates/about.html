@@ -8,38 +8,59 @@
     </article>
   </div>
 
-  <div class="overflow-block col-xs-6 col-md-6">   
+  <div class="overflow-block col-xs-6 col-md-6" ng-controller="contactController">   
     <div class="panel panel-default">
       <div class="panel-heading"> Contact</div>
     </div>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="inputName" placeholder="Name">
-        </div>
-      </div>
+    <form class="form-horizontal" name="emailForm" novalidate>
       <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          <input type="email" name="email" ng-model="email" class="form-control" placeholder="Email"  required />
+           <span class="error" ng-show="emailForm.email.$error.required">
+              <span class="glyphicon glyphicon-exclamation-sign"></span>
+              Email is required.
+            </span>
+          <span class="error" ng-show="emailForm.email.$error.email">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            Invalid email address.
+          </span>
         </div>
       </div>
       <div class="form-group">
         <label for="inputSubject" class="col-sm-2 control-label">Subject</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="inputSubject3" placeholder="Subject">
+          <input type="text" name="subject" ng-model="subject"  class="form-control" placeholder="Subject" required>
+          <span class="error" ng-show="emailForm.subject.$error.required">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+              Subject is required.
+          </span>
         </div>
       </div>
       <div class="form-group">
         <label for="inputMessage" class="col-sm-2 control-label">Message</label>
         <div class="col-sm-6">
-          <textarea class="form-control" id="inputMessage" placeholder="Message" rows="6"></textarea>
+          <textarea name="message" ng-model="message" class="form-control" placeholder="Message" rows="6" required></textarea>
+          <span class="error" ng-show="emailForm.message.$error.required">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+              Message is required.
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+       <label for="inputMessage" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+          <no-captcha
+            g-recaptcha-response="gRecaptchaResponse"
+            theme='light'
+            control="noCaptchaControl"
+            site-key="6LdluRYTAAAAAEQkfdXA6n_qVF_gCOP5ZNAmGl3Y">
+          </no-captcha>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Send</button>
+          <button ng-disabled="emailForm.subject.$invalid || emailForm.message.$invalid || emailForm.email.$invalid || captacha_expired" type="submit" class="btn btn-default">Send</button>
         </div>
       </div>
     </form>

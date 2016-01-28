@@ -5,7 +5,9 @@
 .alert-alert {
   @extend .alert-danger;
 }
-
+.error{
+  @extend .alert-danger;
+}
 a.new, a.edit, a.delete,
 a.add{
   @extend .btn;
@@ -26,6 +28,9 @@ a.delete{
 
 .sortable-picture img {
   height: 50px
+}
+.container{
+  padding:10px
 }
 
 .glyphicon-refresh-animate {

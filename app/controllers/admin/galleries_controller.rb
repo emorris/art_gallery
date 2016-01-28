@@ -60,6 +60,10 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:name, :text, pictures_attributes: [:image_file, :title, :text, :id, :sort])
+    params.require(:gallery).permit(
+      :name, 
+      :text, 
+      pictures_attributes: Picture.settable_attrs 
+    )
   end
 end

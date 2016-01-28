@@ -9,6 +9,7 @@
     "angular-mocks": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
+    "angular-no-captcha": "latest",
     "angular-sanitize": "latest"
   }
 }

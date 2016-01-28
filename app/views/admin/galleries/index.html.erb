@@ -31,7 +31,7 @@
         <% gallery.shows.each do |show| %>
           <tr>
             <td><%= show.title %></td>
-            <td><%=table_text(show.text)%></td>
+            <td><%= table_text(show.text) %></td>
             <td><%= table_text(show.artists) %></td>
             <td><%= show.start_date %></td>
             <td><%= show.end_date %></td>

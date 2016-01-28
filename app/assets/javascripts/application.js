@@ -23,6 +23,7 @@
 //= require_tree ./services
 //= require_tree ./controllers
 //= require directives
+//= require angular-no-captcha
 //= require_tree ./add_ons
 
 

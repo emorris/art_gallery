@@ -24,6 +24,7 @@ $(document).ready(function(){
   ],
   })
   summernoteObj.summernote('code', $('textarea.summernote:first').text())
+  
   $('#image-upload').fileupload({
     url: $('#image_upload').attr('action'),
     method: "PATCH",
@@ -46,6 +47,8 @@ $(document).ready(function(){
 
   $("#sortable-pictures-block").sortable({
     placeholder: "sortable-picture",
+    connectWith: "td",
+    handle: "img",
     stop: function( event, ui ) {
       $(this).find(".sortable-picture .order-input").each(function(index, obj){
         $(obj).val(index)
@@ -81,7 +84,8 @@ $(document).ready(function(){
     allowInputToggle: true,
     format : 'YYYY-MM-DD hh:mm A'
   })
-    $(".date-picker").datetimepicker({
+
+  $(".date-picker").datetimepicker({
     inline: true,
     sideBySide: true,
     allowInputToggle: true,

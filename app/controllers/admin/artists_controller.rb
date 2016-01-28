@@ -59,6 +59,6 @@ class Admin::ArtistsController < Admin::ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :bio, pictures_attributes: [:image_file, :title, :text, :id, :sort])
+    params.require(:artist).permit(:id, :name, :bio, pictures_attributes: [:image_file, :text, :id, :sort])
   end
 end
