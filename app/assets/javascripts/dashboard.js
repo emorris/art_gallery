@@ -11,6 +11,8 @@ var app = angular.module(
   ]
 )
 
+
+
 app.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
     var original = $location.path;
     $location.path = function (path, reload) {
@@ -73,10 +75,10 @@ app.config([
   }
 ]);
 
-
-
-
-
-
+app.config(function($httpProvider) {
+  console.log($('meta[name=csrf-token]').attr('content'))
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] =
+    $('meta[name=csrf-token]').attr('content');
+});
 
 

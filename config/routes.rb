@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
     root 'application#index'
   end
-
+ 
   devise_for :users
   
   resources :galleries, only: [:index, :show] do
@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   resources :artists, only: [:index, :show]
   resources :news_posts, only: [:index, :show]
   resources :app_settings, only:[:index]
+  post "/contact_form", to: 'contact#index'
   root 'dashboard#index'
 end

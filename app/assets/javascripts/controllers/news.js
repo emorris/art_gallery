@@ -22,6 +22,18 @@
       $scope.navOnClick = function(obj){
         $scope.newsPost = newsPostFactory.get({ "id": obj.id})
         $location.path("/news/"+ obj.id, false);
+        sendEmail()
       }
+
+      var sendEmail = function() {
+        var data = $.param({
+            json: JSON.stringify({
+                name: $scope.newName
+            })
+        });
+        $http.post("/echo/json/", data).success(function(data, status) {
+            $scope.hello = data;
+        })
+      }          
     }
   ])
