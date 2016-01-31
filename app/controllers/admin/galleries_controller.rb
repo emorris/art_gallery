@@ -63,6 +63,7 @@ class Admin::GalleriesController < Admin::ApplicationController
     params.require(:gallery).permit(
       :name, 
       :text, 
+      :visible,
       pictures_attributes: Picture.settable_attrs 
     )
   end

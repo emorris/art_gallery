@@ -551,7 +551,6 @@ if (typeof jQuery === 'undefined') {
     this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
                            '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
-
     if (this.options.parent) {
       this.$parent = this.getParent()
     } else {

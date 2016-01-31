@@ -9,13 +9,17 @@
   @extend .alert-danger;
 }
 a.new, a.edit, a.delete,
-a.add{
+a.add, a.default{
   @extend .btn;
 }
 
 a.new,
 a.add {
   @extend .btn-success;
+}
+
+a.default{
+  @extend .btn-primary
 }
 
 a.edit{

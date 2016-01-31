@@ -6,17 +6,27 @@
 <% @galleries.each do |gallery| %>
   <div class="panel panel-info">
     <div class="panel-heading control">
-      <%= gallery.name %> - 
-      <%= link_to "Edit", edit_admin_gallery_path(gallery), class: "edit navbar-btn" %>
-      <%= link_to "Delete", 
-        admin_gallery_path(gallery), 
-        method: :delete,
-        data: { confirm: "Are you sure you want to delete this Gallery #{gallery.name}?" },
-        class: "delete navbar-btn"  %>
+      <div class="row">
+        <div class="col-md-4">
+          <h4><%= gallery.name %></h4> Visible <span class="label label-default"><%= gallery.visible.to_s %></span>
+        </div>
+        <div class="col-md-4">
+          <%= link_to "Edit", edit_admin_gallery_path(gallery), class: "edit navbar-btn" %>
+          <%= link_to "Delete", 
+            admin_gallery_path(gallery), 
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this Gallery #{gallery.name}?" },
+            class: "delete navbar-btn"  %>
+        </div>
+        <div class="col-md-4"><a class="navbar-btn default collapsed" data-toggle="collapse" data-target="#show_<%= gallery.id %>" aria-expanded="false" aria-controls="show_<%= gallery.id %>"> Shows </a></div>
+      </div>
+      
     </div>
-    <div class="panel-body">
+  <div class="bs-example"> 
+   
+    <div class="panel-body collapse" id="show_<%= gallery.id %>" aria-expanded="false" style="height: 0px;">
       <h4>Shows  <%= link_to "New Show", new_admin_gallery_show_path(gallery), class: "new" %></h4>
-      <table id="shows" class="table table-striped">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
