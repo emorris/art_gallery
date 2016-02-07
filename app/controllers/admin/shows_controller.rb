@@ -47,8 +47,7 @@ class Admin::ShowsController < Admin::ApplicationController
   end
 
   def upload_picture
-    initial_picture_sort(@show)
-    if @show.update(show_params)
+    if @show.picture_save(show_params)
       render json: @show.pictures.last
     else
       render json: { errors: @show.errors.full_messages }, status: 422

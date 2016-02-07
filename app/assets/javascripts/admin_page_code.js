@@ -1,3 +1,16 @@
+  var summernoteSettings = {
+    toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'italic', 'underline', 'clear']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'hr', 'video']],
+    ['view', ['fullscreen', 'codeview']],
+    ['help', ['help']]
+  ],
+}
 
 $(document).ready(function(){
   if ($("#tr-sort-picture").length > 0 ) 
@@ -7,22 +20,8 @@ $(document).ready(function(){
     var loadingFileSpinner   = Handlebars.compile($("#loading-file-button").html());
 
   window.setTimeout(function() { $(".alert-notice").hide('close'); }, 2000);
-  
-
- 
-  var summernoteObj =  $('.summernote').summernote({
-    toolbar: [
-    ['style', ['style']],
-    ['font', ['bold', 'italic', 'underline', 'clear']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['height', ['height']],
-    ['table', ['table']],
-    ['insert', ['link', 'picture', 'hr']],
-    ['view', ['fullscreen', 'codeview']],
-    ['help', ['help']]
-  ],
-  })
+    
+  var summernoteObj =  $('.summernote').summernote(summernoteSettings)
   summernoteObj.summernote('code', $('textarea.summernote:first').text())
   
   $('#image-upload').fileupload({
@@ -31,7 +30,9 @@ $(document).ready(function(){
     sequentialUploads: true,
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
     done: function (e, data) {
-      $("#sortable-pictures-block").append(sortPictureTr(data.result))
+      var newPictureEl = $(sortPictureTr(data.result))
+      newPictureEl.summernote(summernoteSettings)
+      $("#sortable-pictures-block").append(newPictureEl)
     }
   }).on('fileuploaddone', function(e, data){
     $("#"+data.files[0].lastModified).remove()
@@ -56,6 +57,7 @@ $(document).ready(function(){
     }
   })
 
+
   $('#info_picture').on("click", function (e) {
     e.preventDefault()
     $(this).tab('show')
@@ -77,6 +79,7 @@ $(document).ready(function(){
     }
     return false
   })
+
 
   $(".date-time-picker").datetimepicker({
     inline: true,

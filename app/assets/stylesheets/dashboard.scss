@@ -8,6 +8,8 @@ $color3: #254441; //rgba(37, 68, 65, 100)
 $color4: #43aa8b; //rgba(67, 170, 139, 100)
 $color5: #b2b09b; //rgba(178, 176, 155, 100)
 
+$small-screen: 750px;
+
 $background-color-body: grey;
 $background-color-info: white;
 $active-link-color: $color1;
@@ -114,15 +116,7 @@ body{
 }
 
 
-.picture-view{
-  .big-image img{
-    height:400px;
-  }
-  .thumbs{
-    height:400px;
-    overflow:auto;
-  }
-}
+
 
 .sub-nav{
   .list-group{
@@ -152,6 +146,15 @@ body{
 }
 
 picture-viewer{
+  .picture-view{
+    .big-image img{
+     max-width:100%;
+    }
+    .thumbs{
+      height:400px;
+      overflow:auto;
+    }
+  }
   .thumbnail{
     display: block;
     padding: 0px;
@@ -159,6 +162,7 @@ picture-viewer{
     line-height: 1.42857;
     //background-color: $color2;
     border: none;
+    max-width:100%;
   }
   .image{
     .img_center{
@@ -166,7 +170,8 @@ picture-viewer{
       img{
         display: block;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
+        width:100%;
       }
     }
     
@@ -183,6 +188,8 @@ picture-viewer{
 
   }
 }
+
+
 
 .panel{
   background-color: $alpha-color-zero;
@@ -227,7 +234,14 @@ a.darken img {
 a.darken:hover img {
     opacity: 0.4;           
 }
-a.darken span{position:absolute;bottom:1px;color:#FFF; opacity: 0.0; left:10px}
+a.darken span{
+  position:absolute;
+  bottom:1px;
+  color:#FFF; 
+  opacity: 0.0; 
+  left:10px
+}
+
 a.darken:hover span{color:#fff;
   opacity: 1.0;
     -webkit-transition: all 0.5s linear;
@@ -235,4 +249,73 @@ a.darken:hover span{color:#fff;
         -ms-transition: all 0.5s linear;
          -o-transition: all 0.5s linear;
             transition: all 0.5s linear;
+}
+
+
+
+
+
+
+@media (max-width: $small-screen) {
+  body{
+    overflow:auto;
+  }
+
+  .mobile-main-nav{
+    margin:0;
+  }
+  
+  .overflow-block{
+    height:inherit;
+    overflow:none;
+  }
+  picture-viewer{
+    .picture-view{
+      .big-image img{
+       max-width:100%;
+      }
+      .thumbs{
+        height:110px;
+        overflow:auto;
+        margin-bottom: .2em;
+      }
+      .wrapper{
+        display: inline-block;
+        padding: .1em;
+      }
+    }
+    .thumbnail{
+      display: inline-block;
+      padding: 0px;
+      margin-bottom: 10px;
+      line-height: 1.42857;
+      vertical-align: middle;
+      //background-color: $color2;
+      border: none;
+      max-width:100%;
+    }
+    .image{
+      .img_center{
+        display: block;
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width:100%;
+        }
+      }
+      
+    }
+    .caption{
+      padding:10px;
+      .title{
+        font-weight: bold;
+        font-size: 19px;
+      }
+      .text{
+        text-align:left;
+      }
+
+    }
+  }
 }

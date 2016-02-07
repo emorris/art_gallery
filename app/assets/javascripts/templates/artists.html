@@ -1,9 +1,9 @@
 
 <div class="container-fluid" id="artists" >
-  <nav class="overflow-block col-xs-2 col-md-2 sub-nav" ng-controller="artistsController">
+  <nav class="overflow-block col-xs-2 col-sm-2 sub-nav" ng-controller="artistsController">
    <side-nav objects="artists" is-active="isActive(obj)" on-click="navOnClick(obj)" text-format="linkTextFormat(obj)" ></side-nav>
   </nav>
-    <div class="overflow-block col-xs-10 col-md-10">
+    <div class="overflow-block col-xs-10 col-sm-10">
      <picture-viewer pictures="artist.pictures"></picture-viewer>
       <div class="panel panel-default main-info-block">
         <div class="panel-heading">{{artist.name}}</div>

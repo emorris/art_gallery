@@ -1,14 +1,14 @@
 
 <div class="container" id="about" >
   
-  <div class="overflow-block col-xs-6 col-md-6"> 
+  <div class="overflow-block col-xs-12 col-md-6"> 
     <article class="panel panel-default">
       <div class="panel-heading"> About </div>
       <div class="panel-body" ng-bind-html="appSettings.about_text  | unsafe"></div>
     </article>
   </div>
 
-  <div class="overflow-block col-xs-6 col-md-6" ng-controller="contactController">   
+  <div class="overflow-block col-xs-12 col-md-6" ng-controller="contactController">   
     <div ng-show="emailSent">
       <h1>Your Message Has been sent</h1>
     </div>

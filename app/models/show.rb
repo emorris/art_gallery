@@ -1,7 +1,6 @@
 class Show < ActiveRecord::Base
+  include Picturable
   belongs_to :gallery
-  has_many :pictures, as: :imageable, dependent: :destroy
-  accepts_nested_attributes_for :pictures, reject_if: :all_blank
   
   scope :visible, -> () { where('shows.visible = true') }
 

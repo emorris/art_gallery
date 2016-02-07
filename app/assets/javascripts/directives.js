@@ -41,6 +41,13 @@ app.directive('navTop', function() {
   };
 });
 
+app.directive('mobileMainNav', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "mobile_main_nav.html"
+  };
+});
+
 app.directive('sideNav', function() {
   return {
     restrict: 'E',

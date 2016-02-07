@@ -34,7 +34,7 @@ class Admin::ArtistsController < Admin::ApplicationController
   end
 
   def update
-    if @artist.update(artist_params)
+    if @artist.picture_save(artist_params)
       flash[:notice] = "Artist: #{@artist} has been updated."
       redirect_to admin_artists_path
     else

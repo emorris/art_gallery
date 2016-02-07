@@ -45,8 +45,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def upload_picture
-     initial_picture_sort(@gallery)
-    if @gallery.update(gallery_params)
+    if @gallery.picture_save(gallery_params)
       render json: @gallery.pictures.last
     else
       render json: { errors: @gallery.errors.full_messages }, status: 422

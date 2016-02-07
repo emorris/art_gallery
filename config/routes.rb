@@ -1,25 +1,22 @@
 Rails.application.routes.draw do
   namespace :admin do
-    
-    resources :users
-    resources :pictures, only: [:destroy]
-    resources :app_settings, only:[:index, :update]
-    resources :news_posts
-    resources :artists do
+    concern :pictures do
       member do
         patch :upload_picture
       end
     end
 
+    resources :users
+    resources :pictures, only: [:destroy]
+    resources :app_settings, only:[:index, :update]
+    resources :news_posts
+    resources :artists do
+      concerns :pictures
+    end
     resources :galleries do
-      member do
-        patch :upload_picture
-      end
-      
+      concerns :pictures
       resources :shows do
-        member do
-          patch :upload_picture
-        end
+        concerns :pictures
       end   
     end
 

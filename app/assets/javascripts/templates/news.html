@@ -1,13 +1,13 @@
 
 <div id="news" >
-  <nav class="col-xs-2 col-md-2 sub-nav overflow-block">
+  <nav class="col-xs-2 col-sm-2 sub-nav overflow-block">
     <div class="row" ng-repeat="year in newsPosts.years_in_order">
       <news-nav-element on-click="navOnClick(obj)" year="year" objects="newsPosts"></news-nav-element>
       <div class="bottom_fill"></div>
     </div>
   </nav>
 
-  <div class="overflow-block col-xs-10 col-md-10">
+  <div class="overflow-block col-xs-10 col-sm-10">
     <article class="panel panel-default">
       <div class="panel-heading"><span class="date">{{newsPost.publish_date | date}}</span>{{newsPost.title}} </div>
       <div class="panel-body" ng-bind-html="newsPost.text | unsafe"></div>

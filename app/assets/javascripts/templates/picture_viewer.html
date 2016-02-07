@@ -1,11 +1,11 @@
 <div class="picture-view row" ng-hide="!pictures.length">
-  <div class="col-xs-2 col-md-2 thumbs">
-    <div  ng-repeat="picture in pictures">
+  <div class="col-xs-12 col-md-2 thumbs">
+    <div  ng-repeat="picture in pictures" class="wrapper">
       <a class="thumbnail" href="" ng-click="onClick(picture)"><img ng-src="{{picture.image_file.thumb.url}}"></a>
     </div>
   </div>
 
-  <div class="col-xs-9 col-md-9 big-image fluid-container">
+  <div class="col-xs-12 col-md-9 big-image fluid-container">
     <div class="row image"> 
       <a href="" class="img_center darken">
         <img ng-src="{{picture_main.image_file.medium.url}}">
@@ -16,7 +16,5 @@
       </a>
     </div>
   </div>
-
-
   </div>
 </div >
