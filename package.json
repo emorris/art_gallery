@@ -1,0 +1,15 @@
+{
+  "name": "art_gallery",
+  "version": "1.0.0",
+  "description": "\"bower install file\"",
+  "main": "nothing",
+  "dependencies": {
+    "bower": "^1.7.7"
+  },
+  "devDependencies": {},
+  "author": "n",
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}

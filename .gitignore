@@ -17,4 +17,5 @@
 
 public/public/
 
-config/app_config.yml
+
+node_modules/*
