@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem "bower-rails", "~> 0.10.0"
+gem 'bower'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
