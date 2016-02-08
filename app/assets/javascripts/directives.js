@@ -3,9 +3,26 @@ app.directive('showNav', function() {
   return {
     restrict: 'E',
     templateUrl: "show_nav.html",
-    controller:"showNavController"
+    controller: "showNavController"
   };
 });
+
+app.directive('sideNavShows', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      objects: '=',
+      newId: '=',
+      header: '=',
+      onClick: '&',
+      textFormat: '&',
+      isActive: '&'
+    },
+    templateUrl: "side_nav_shows.html",
+  };
+});
+
+
 
 app.directive('pictureViewer', function() {
   return {
@@ -25,6 +42,7 @@ app.directive('pictureViewer', function() {
     templateUrl: "picture_viewer.html"
   };
 });
+
 
 
 app.directive('navBottom', function() {
@@ -60,6 +78,7 @@ app.directive('sideNav', function() {
     templateUrl: "generic_side_nav.html"
   };
 });
+
 
 app.directive('newsNavElement', function() {
   return {

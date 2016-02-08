@@ -6,8 +6,5 @@
         "gallery_id": $routeParams.gallery_id, 
         "show_id": $routeParams.show_id
       })
-      $scope.$watch('show', function(){
-        window_resize()
-      })
     }
   ])

@@ -53,6 +53,7 @@ body{
 #top-nav{
   @extend .navbar;
   margin-bottom: 0px;
+  margin-top: 1px;
   border: none;
   min-height: 10px;
 }
@@ -119,6 +120,7 @@ body{
 
 
 .sub-nav{
+  
   .list-group{
     border:none
   }
@@ -128,9 +130,44 @@ body{
   .list-group-item:last-child{
     border-radius: 0px;
   }
-  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+  .panel{
+    margin-top:1em;
+  }
+  .panel-heading, .panel-heading a{
+     margin-bottom: .5em;
+     font-size: 1em !important;
+     padding:0;
+  }
+
+  .panel-title{
+    margin-bottom: .25em;
+  }
+
+  .panel-default a {
+    display: block;
+    padding: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: inherit;
+    font-size: 14px;
+    margin-bottom: .25em;
+  }
+  .panel-default a.active,
+  .panel-default a:hover,
+  .panel-default a:focus{
     background-color: $active-link-color;
     border-color: $active-link-color;
+    color:white;
+    text-decoration: none;
+  }
+
+  .list-group a.active,
+  .list-group a:hover,
+  .list-group a:focus{
+    background-color: $active-link-color;
+    border-color: $active-link-color;
+    color:white;
+    text-decoration: none;
   }
   .year-header{
     bottom-bottom: solid;
@@ -260,14 +297,18 @@ a.darken:hover span{color:#fff;
   body{
     overflow:auto;
   }
-
-  .mobile-main-nav{
-    margin:0;
+  #main-block{
+    background-color: $background-color-info;
+    padding: 1em;
+    padding-top: 4em;
   }
-  
   .overflow-block{
     height:inherit;
     overflow:none;
+  }
+  .panel-default a {
+    text-align: center;
+    font-size: 1.5em;
   }
   picture-viewer{
     .picture-view{

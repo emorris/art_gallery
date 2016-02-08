@@ -1,10 +1,14 @@
-<div class="list-group">
-	<a href="" class="list-group-item" ng-click="navHeaderOnClick($event)"> {{year}} ({{objects['counts_by_year'][year]}})</a>
-</div>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h3 class="panel-title">
+	   <a href="" ng-click="navHeaderOnClick($event)"> {{year}} ({{objects['counts_by_year'][year]}})</a>
+    </h3>
+  </div>
 
-<div class="list-group" ng-show="show">
-	<a href="" ng-class="{ active: isActive(newsPost_link.id)}" class="list-group-item" ng-click="onClick({obj:newsPost_link})" ng-repeat="newsPost_link in objects['links_by_year'][year]" ng-init="showHeader(year)">
-	  {{newsPost_link.title}}
-	  <div class="date">{{newsPost_link.publish_date | date}}</div>
-	</a>
+  <div class="panel-body" ng-show="show">
+  	<a href="" ng-class="{ active: isActive(newsPost_link.id)}" class="list-group-item" ng-click="onClick({obj:newsPost_link})" ng-repeat="newsPost_link in objects['links_by_year'][year]" ng-init="showHeader(year)">
+  	  {{newsPost_link.title}}
+  	  <div class="date">{{newsPost_link.publish_date | date}}</div>
+  	</a>
+  </div>
 </div>

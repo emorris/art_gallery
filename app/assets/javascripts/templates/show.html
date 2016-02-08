@@ -1,6 +1,7 @@
-<div id="show" >
+<div class="container-fluid" id="show" >
   <show-nav></show-nav>
-  <div class="overflow-block col-xs-12 col-md-10">
+  <div id="info-space" class="overflow-block col-xs-12 col-md-10">
+   <div class="page-header"><h2>{{show.title}} <small>{{shows.current.start_date | date}} - {{shows.current.end_date | date}}</small></h2></div>
     <picture-viewer pictures="show.pictures"></picture-viewer>
     <article class="panel panel-default">
       <div class="panel-heading"> Artists Info </div>

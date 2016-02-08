@@ -1,0 +1,22 @@
+<div class="panel panel-default row" ng-hide="objects | isEmpty">
+  <div class="panel-heading" role="tab">
+    <h3 class="panel-title">
+      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#{{newId}}" aria-expanded="false" aria-controls="{{newId}}">
+       {{header}}</a>
+    </h3>
+  </div>
+
+  <div id="{{newId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{newId}}">
+    <div class="panel-body"  ng-repeat="show_array in objects">
+      <div class="year-header">{{show_array[0]}}</div>
+      <a href="" ng-repeat="obj in show_array[1]"
+ng-class="{ active: isActive({obj:obj})}" ng-click="onClick({obj:obj})"
+      >
+        {{obj.title}} 
+        <div class="date">{{obj.start_date | date}} - {{obj.end_date | date}}</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+

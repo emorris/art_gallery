@@ -24,8 +24,8 @@
       })
 
       $scope.onClickGallery = function(gallery_id){
-        console.log(gallery_id)
         $location.path( "/galleries/" + gallery_id);
+        hideMobileNav()
       }
 
       $scope.isGalleryActive = function(gallery_id){
@@ -35,11 +35,16 @@
 
       $scope.onClickBottom = function(name){
         $location.path("/"+name);
+        hideMobileNav()
       }
 
       $scope.isBottomActive = function(name){
         var regex =  new RegExp("^\/"+name)
         return regex.test($location.path())
+      }
+
+      var hideMobileNav =  function(){
+        $("#mobile-nav-dropdown").collapse('hide')
       }
 
   }])

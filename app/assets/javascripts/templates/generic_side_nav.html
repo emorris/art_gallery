@@ -1,5 +1,7 @@
-<div class="list-group ">
-  <div ng-repeat="obj in objects">
-    <a href="" class="list-group-item" ng-class="{ active: isActive({obj:obj})}" class="list-group-item" ng-click="onClick({obj:obj})" ng-bind="textFormat({obj:obj})"></a>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h3 class="panel-title">
+     <a href="" ng-repeat="obj in objects" class="list-group-item" ng-class="{ active: isActive({obj:obj})}" ng-click="onClick({obj:obj})" ng-bind="textFormat({obj:obj})"></a>
+    </h3>
   </div>
 </div>

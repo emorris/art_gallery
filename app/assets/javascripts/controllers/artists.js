@@ -20,6 +20,7 @@
 
       $scope.navOnClick = function(obj){
         $location.path("/artists/"+obj.id)
+        mobileScroll()
       }
       
       $scope.isActive = function(obj){
