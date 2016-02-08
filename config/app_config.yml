@@ -1,0 +1,9 @@
+development:
+  email: "test"
+  email_password: "password"
+test:
+  email: "test"
+  email_password: "password"
+production:
+  email: "production"
+  email_password: "password"
