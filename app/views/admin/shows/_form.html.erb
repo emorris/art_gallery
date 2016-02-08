@@ -1,7 +1,7 @@
 <%= simple_form_for [:admin, gallery, show]  do |f| %>
   <%= f.input :visible %>
   <%= f.input :title %>
-  <%= f.input :artists %>
+  <%= f.input :artists, input_html: { class: 'summernote' }  %>
   <%= date_selector f, :start_date  %>
   <%= date_selector f, :end_date  %>
   <%= date_time_selector f, :reception_start %>

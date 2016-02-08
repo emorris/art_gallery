@@ -22,7 +22,7 @@ $(document).ready(function(){
   window.setTimeout(function() { $(".alert-notice").hide('close'); }, 2000);
     
   var summernoteObj =  $('.summernote').summernote(summernoteSettings)
-  summernoteObj.summernote('code', $('textarea.summernote:first').text())
+  
   
   $('#image-upload').fileupload({
     url: $('#image_upload').attr('action'),
@@ -31,8 +31,8 @@ $(document).ready(function(){
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
     done: function (e, data) {
       var newPictureEl = $(sortPictureTr(data.result))
-      newPictureEl.summernote(summernoteSettings)
       $("#sortable-pictures-block").append(newPictureEl)
+      $('.summernote').summernote(summernoteSettings)
     }
   }).on('fileuploaddone', function(e, data){
     $("#"+data.files[0].lastModified).remove()
