@@ -1,6 +1,6 @@
   var app = angular.module('dashboard')
-  app.controller("showNavController",["$scope", "$location", "$routeParams", "showFactory","galleryFactory", "anchorSmoothScroll",
-    function($scope, $location, $routeParams, showFactory, galleryFactory,anchorSmoothScroll) {
+  app.controller("showNavController",["$scope", "$location", "$routeParams", "showFactory","galleryFactory",
+    function($scope, $location, $routeParams, showFactory, galleryFactory) {
       $scope.shows = [];
       $scope.gallery =  galleryFactory.get({ "id": $routeParams.gallery_id });
       
