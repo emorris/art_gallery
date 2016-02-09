@@ -5,7 +5,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap-sass-official": "latest",
-    "summernote": "latest",
+    "summernote": "~>  0.7.3",
     "blueimp-file-upload": "latest",
     "handlebars": "latest",
     "angular": "~> 1.5",
