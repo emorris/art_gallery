@@ -152,23 +152,24 @@ body{
     font-size: 14px;
     margin-bottom: .25em;
   }
-  .panel-default a.active,
-  .panel-default a:hover,
-  .panel-default a:focus{
-    background-color: $active-link-color;
-    border-color: $active-link-color;
-    color:white;
-    text-decoration: none;
+  .panel-default a {
+    &.active, &:hover, &:focus{
+      background-color: $active-link-color;
+      border-color: $active-link-color;
+      color:white;
+      text-decoration: none;
+    }
   }
 
-  .list-group a.active,
-  .list-group a:hover,
-  .list-group a:focus{
-    background-color: $active-link-color;
-    border-color: $active-link-color;
-    color:white;
-    text-decoration: none;
+  .list-group a{
+    &.active, &:hover, &:focus{
+      background-color: $active-link-color;
+      border-color: $active-link-color;
+      color:white;
+      text-decoration: none;
+    }
   }
+
   .year-header{
     bottom-bottom: solid;
   }
@@ -249,50 +250,51 @@ picture-viewer{
   }
 
 }
+.panel-group{
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
 
+//Picture View Overlays
 
 a.darken {
-    display: inline-block;
-    background: black;
-    padding: 0;
-    position:relative
-}
+  display: inline-block;
+  background: black;
+  padding: 0;
+  position:relative
 
-a.darken img {
-    display: block;
-    
-    -webkit-transition: all 0.5s linear;
-       -moz-transition: all 0.5s linear;
-        -ms-transition: all 0.5s linear;
-         -o-transition: all 0.5s linear;
-            transition: all 0.5s linear;
-}
+  img {
+      display: block;
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+  }
 
-a.darken:hover img {
+  &:hover img {
     opacity: 0.4;           
-}
-a.darken span{
-  position:absolute;
-  bottom:1px;
-  color:#FFF; 
-  opacity: 0.0; 
-  left:10px
-}
+  }
+  
+  span{
+    position:absolute;
+    bottom:1px;
+    color:#FFF; 
+    opacity: 0.0; 
+    left:10px
+  }
 
-a.darken:hover span{color:#fff;
-  opacity: 1.0;
+  &:hover span{color:#fff;
+    opacity: 1.0;
     -webkit-transition: all 0.5s linear;
-       -moz-transition: all 0.5s linear;
-        -ms-transition: all 0.5s linear;
-         -o-transition: all 0.5s linear;
-            transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
 }
 
-
-
-
-
-
+// Phone Layout
 @media (max-width: $small-screen) {
   body{
     overflow:auto;
@@ -309,6 +311,14 @@ a.darken:hover span{color:#fff;
   .panel-default a {
     text-align: center;
     font-size: 1.5em;
+  }
+  .panel-title{
+    text-align: center;
+    padding-bottom: 0.5em;
+    border-bottom: 1px #ddd solid;
+  }
+  .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top: none;
   }
   picture-viewer{
     .picture-view{
