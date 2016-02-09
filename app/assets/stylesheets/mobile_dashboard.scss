@@ -1,0 +1,77 @@
+// Phone Layout
+@media (max-width: $small-screen) {
+  body{
+    overflow:auto;
+  }
+
+  #main-block {
+    background-color: $background-color-info;
+    padding: 1em;
+    padding-top: 4em;
+  }
+  .overflow-block {
+    height:inherit;
+    overflow:none;
+  }
+  .panel-default a {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  .panel-title {
+    text-align: center;
+    padding-bottom: 0.5em;
+    border-bottom: 1px #ddd solid;
+  }
+  .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top: none;
+  }
+  picture-viewer {
+    .picture-view{
+      .big-image img{
+       max-width:100%;
+      }
+      .thumbs {
+        height:110px;
+        overflow:auto;
+        margin-bottom: .2em;
+      }
+      .wrapper {
+        display: inline-block;
+        padding: .1em;
+      }
+    }
+    .thumbnail {
+      display: inline-block;
+      padding: 0px;
+      margin-bottom: 10px;
+      line-height: 1.42857;
+      vertical-align: middle;
+      //background-color: $color2;
+      border: none;
+      max-width:100%;
+    }
+    .image {
+      .img_center {
+        display: block;
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width:100%;
+        }
+      }
+      
+    }
+    .caption {
+      padding:10px;
+      
+      .title {
+        font-weight: bold;
+        font-size: 19px;
+      }
+      .text {
+        text-align:left;
+      }
+    }
+  }
+}

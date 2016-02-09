@@ -1,0 +1,61 @@
+//SideBar Nav on Shows, News, Etc
+.sub-nav{
+  
+  .list-group{
+    border:none
+  }
+  .list-group-item{
+    border:none;
+  }
+  .list-group-item:last-child{
+    border-radius: 0px;
+  }
+  .panel{
+    margin-top:1em;
+  }
+  .panel-heading, .panel-heading a{
+     margin-bottom: .5em;
+     font-size: 1em !important;
+     padding:0;
+  }
+
+  .panel-title{
+    margin-bottom: .25em;
+  }
+
+  .panel-default a {
+    display: block;
+    padding: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: inherit;
+    font-size: 14px;
+    margin-bottom: .25em;
+  }
+  
+  %side-nav-links{
+    background-color: $active-link-color;
+    border-color: $active-link-color;
+    color:white;
+    text-decoration: none;
+  }
+
+  .panel-default a {
+    &.active, &:hover, &:focus{
+     @extend %side-nav-links
+    }
+  }
+
+  .list-group a{
+    &.active, &:hover, &:focus{
+      @extend %side-nav-links
+    }
+  }
+  .year-header{
+    bottom-bottom: solid;
+  }
+  .date{
+    font-size:11px;
+  }
+
+}

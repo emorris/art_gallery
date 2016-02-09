@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin transition($time: 0.5s, $type: linear){
+  -webkit-transition: all $time $type;
+  -moz-transition: all $time $type;
+  -ms-transition: all $time $type;
+  -o-transition: all $time $type;
+  transition: all $time $type;
+}
+
+
 $color1: #db504a; //rgba(219, 80, 74, 100)
 $color2: #ff6f59; //rgba(255, 111, 89, 100)
 $color3: #254441; //rgba(37, 68, 65, 100)
@@ -86,9 +95,6 @@ body{
       border-bottom: 30px solid $background-color-info;
       border-bottom-color: $background-color-info;
     }
-    a:hover, a:active, a:focus{
-    
-    }
   }
 }
 
@@ -116,125 +122,16 @@ body{
   }
 }
 
-
-
-
-.sub-nav{
-  
-  .list-group{
-    border:none
-  }
-  .list-group-item{
-    border:none;
-  }
-  .list-group-item:last-child{
-    border-radius: 0px;
-  }
-  .panel{
-    margin-top:1em;
-  }
-  .panel-heading, .panel-heading a{
-     margin-bottom: .5em;
-     font-size: 1em !important;
-     padding:0;
-  }
-
-  .panel-title{
-    margin-bottom: .25em;
-  }
-
-  .panel-default a {
-    display: block;
-    padding: 0.5em;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: inherit;
-    font-size: 14px;
-    margin-bottom: .25em;
-  }
-  .panel-default a {
-    &.active, &:hover, &:focus{
-      background-color: $active-link-color;
-      border-color: $active-link-color;
-      color:white;
-      text-decoration: none;
-    }
-  }
-
-  .list-group a{
-    &.active, &:hover, &:focus{
-      background-color: $active-link-color;
-      border-color: $active-link-color;
-      color:white;
-      text-decoration: none;
-    }
-  }
-
-  .year-header{
-    bottom-bottom: solid;
-  }
-  .date{
-    font-size:11px;
-  }
-
-}
-
 .main-info-block{
   padding:15px;
 }
-
-picture-viewer{
-  .picture-view{
-    .big-image img{
-     max-width:100%;
-    }
-    .thumbs{
-      height:400px;
-      overflow:auto;
-    }
-  }
-  .thumbnail{
-    display: block;
-    padding: 0px;
-    margin-bottom: 10px;
-    line-height: 1.42857;
-    //background-color: $color2;
-    border: none;
-    max-width:100%;
-  }
-  .image{
-    .img_center{
-      display: block;
-      img{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width:100%;
-      }
-    }
-    
-  }
-  .caption{
-    padding:10px;
-    .title{
-      font-weight: bold;
-      font-size: 19px;
-    }
-    .text{
-      text-align:left;
-    }
-
-  }
-}
-
-
 
 .panel{
   background-color: $alpha-color-zero;
   border:none;
   box-shadow:none;
   
-  .panel-heading{
+  .panel-heading {
     font-size: 21px;
     background-color: $alpha-color-zero;
     span {
@@ -244,129 +141,15 @@ picture-viewer{
       display:block;
     }
 
-    .panel-body{
+    .panel-body {
       padding: 20px 15px;
     }
   }
 
 }
-.panel-group{
+.panel-group {
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
 }
 
-//Picture View Overlays
 
-a.darken {
-  display: inline-block;
-  background: black;
-  padding: 0;
-  position:relative
-
-  img {
-      display: block;
-      -webkit-transition: all 0.5s linear;
-      -moz-transition: all 0.5s linear;
-      -ms-transition: all 0.5s linear;
-      -o-transition: all 0.5s linear;
-      transition: all 0.5s linear;
-  }
-
-  &:hover img {
-    opacity: 0.4;           
-  }
-  
-  span{
-    position:absolute;
-    bottom:1px;
-    color:#FFF; 
-    opacity: 0.0; 
-    left:10px
-  }
-
-  &:hover span{color:#fff;
-    opacity: 1.0;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -ms-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-  }
-}
-
-// Phone Layout
-@media (max-width: $small-screen) {
-  body{
-    overflow:auto;
-  }
-  #main-block{
-    background-color: $background-color-info;
-    padding: 1em;
-    padding-top: 4em;
-  }
-  .overflow-block{
-    height:inherit;
-    overflow:none;
-  }
-  .panel-default a {
-    text-align: center;
-    font-size: 1.5em;
-  }
-  .panel-title{
-    text-align: center;
-    padding-bottom: 0.5em;
-    border-bottom: 1px #ddd solid;
-  }
-  .panel-default > .panel-heading + .panel-collapse > .panel-body {
-    border-top: none;
-  }
-  picture-viewer{
-    .picture-view{
-      .big-image img{
-       max-width:100%;
-      }
-      .thumbs{
-        height:110px;
-        overflow:auto;
-        margin-bottom: .2em;
-      }
-      .wrapper{
-        display: inline-block;
-        padding: .1em;
-      }
-    }
-    .thumbnail{
-      display: inline-block;
-      padding: 0px;
-      margin-bottom: 10px;
-      line-height: 1.42857;
-      vertical-align: middle;
-      //background-color: $color2;
-      border: none;
-      max-width:100%;
-    }
-    .image{
-      .img_center{
-        display: block;
-        img{
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width:100%;
-        }
-      }
-      
-    }
-    .caption{
-      padding:10px;
-      .title{
-        font-weight: bold;
-        font-size: 19px;
-      }
-      .text{
-        text-align:left;
-      }
-
-    }
-  }
-}

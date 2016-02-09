@@ -1,0 +1,74 @@
+picture-viewer{
+  .picture-view{
+    .big-image img{
+     max-width:100%;
+    }
+    .thumbs{
+      height:400px;
+      overflow:auto;
+    }
+  }
+  .thumbnail{
+    display: block;
+    padding: 0px;
+    margin-bottom: 10px;
+    line-height: 1.42857;
+    //background-color: $color2;
+    border: none;
+    max-width:100%;
+  }
+  .image {
+    .img_center {
+      display: block;
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:100%;
+      }
+    }
+    
+  }
+  .caption {
+    padding:10px;
+    .title {
+      font-weight: bold;
+      font-size: 19px;
+    }
+    .text {
+      text-align:left;
+    }
+
+  }
+
+  //Picture View Overlays
+  a.darken {
+    display: inline-block;
+    background: black;
+    padding: 0;
+    position:relative
+
+    img {
+        display: block;
+        @include transition(0.5s, linear)
+    }
+
+    &:hover img {
+      opacity: 0.4;           
+    }
+    
+    span{
+      position:absolute;
+      bottom:1px;
+      color:#FFF; 
+      opacity: 0.0; 
+      left:10px
+    }
+
+    &:hover span{color:#fff;
+      opacity: 1.0;
+      @include transition(0.5s, linear)
+    }
+}
+}
+
