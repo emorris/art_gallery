@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
   def index
-    galleries = Gallery.all.includes(:pictures)
-    render json: galleries
+    galleries = Gallery.all.includes(:pictures).get_first_image
+    render json: galleries, include: :pictures
   end
 
   def show

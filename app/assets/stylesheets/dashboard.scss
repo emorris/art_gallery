@@ -57,6 +57,15 @@ body{
     .text{
     }
   }
+  .first-gallery-image{
+    margin-bottom: 0.5em;
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:100%;
+    }
+  }
 }
 
 #top-nav{
@@ -145,8 +154,8 @@ body{
       padding: 20px 15px;
     }
   }
-
 }
+
 .panel-group {
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;

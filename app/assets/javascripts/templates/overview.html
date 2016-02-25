@@ -2,6 +2,9 @@
 <div id="overview" >
     <div class="overflow-block col-xs-12 col-sm-4" ng-repeat ="gallery in galleries">
       <div class="row info_row">
+        <div class="first-gallery-image">
+          <img ng-src="{{gallery.pictures[0].image_file.medium.url}}">
+        </div>
         <div  class="text">
           <div ng-bind-html="gallery.text | unsafe"></div>
           <div class="bottom_fill"></div>

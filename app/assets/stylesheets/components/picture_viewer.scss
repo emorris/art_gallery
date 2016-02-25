@@ -65,7 +65,8 @@ picture-viewer{
       left:10px
     }
 
-    &:hover span{color:#fff;
+    &:hover span{
+      color:#fff;
       opacity: 1.0;
       @include transition(0.5s, linear)
     }
