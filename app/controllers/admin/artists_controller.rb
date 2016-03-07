@@ -34,7 +34,7 @@ class Admin::ArtistsController < Admin::ApplicationController
   end
 
   def update
-    if @artist.picture_save(artist_params)
+    if @artist.update(artist_params)
       flash[:notice] = "Artist: #{@artist} has been updated."
       redirect_to admin_artists_path
     else
@@ -45,7 +45,7 @@ class Admin::ArtistsController < Admin::ApplicationController
 
   def upload_picture
     params[:artist][:pictures_attributes]['0'][:sort] = @artist.pictures.count
-    if @artist.update(artist_params)
+    if @artist.picture_save(artist_params)
       render json: @artist.pictures.last
     else
       render json: { errors: @artist.errors.full_messages }, status: 422
