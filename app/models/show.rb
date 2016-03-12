@@ -21,7 +21,7 @@ class Show < ActiveRecord::Base
   end
 
   def self.group_by_year
-    order(:end_date).group_by{ |u| u.end_date.year }.sort_by {|k,v| v}
+    order(:start_date).group_by{ |u| u.end_date.year }.sort {|a,b| b <=> a}
   end
   
   def self.time_separation
