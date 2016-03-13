@@ -1,7 +1,7 @@
 picture-viewer{
   .picture-view{
     .big-image img{
-     max-width:100%;
+     //max-width:100%;
     }
     .thumbs{
       height:400px;
@@ -19,7 +19,7 @@ picture-viewer{
   }
   .image {
     .img_center {
-      display: block;
+      display: inline-block;
       img {
         display: block;
         margin-left: auto;
@@ -44,33 +44,35 @@ picture-viewer{
 
   //Picture View Overlays
   a.darken {
-    display: inline-block;
-    background: black;
+    display: inline;
+    background: white;
     padding: 0;
-    position:relative
-
+    position:relative;
+    @include transition(0.5s, linear);
     img {
         display: block;
-        @include transition(0.5s, linear)
+        @include transition(0.5s, linear);
     }
 
     &:hover img {
-      opacity: 0.4;           
+      opacity: 0.4; 
+      @include transition(0.5s, linear);       
     }
     
     span{
       position:absolute;
       bottom:1px;
-      color:#FFF; 
+      color:black; 
       opacity: 0.0; 
-      left:10px
+      left:10px;
+      @include transition(0.5s, linear);
     }
 
     &:hover span{
-      color:#fff;
+      color:black;
       opacity: 1.0;
-      @include transition(0.5s, linear)
+      @include transition(0.5s, linear);
     }
-}
+  }
 }
 
